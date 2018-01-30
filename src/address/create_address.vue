@@ -182,7 +182,7 @@
         },
         mounted() {
 
-
+          this.Title("添加地址")
             this.form_s = this.$route.query
             if (this.$route.query.province) {
                 this.us_sd = this.$route.query

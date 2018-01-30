@@ -595,9 +595,9 @@ em {
 }
 
 .bgye {
-    background: #ffc154;
+    background: #F97D4F ;
     color: #fff;
-    border: 1px solid #ffc154
+    border: 1px solid #F97D4F
 }
 
 .pl4 {
@@ -635,7 +635,12 @@ em {
 .pl50 {
     padding-left: 50px
 }
-
+.pl5{
+    padding-left: 5px
+}
+.pr5{
+    padding-right: 5px;
+}
 .pl60 {
     padding-left: 60px
 }
@@ -1348,7 +1353,9 @@ a:hover {
     height: 100%;
     width: 30px;
 }
-
+.yj20{
+    border-radius: 20px;
+}
 @media screen and (max-width: 330px) {
     .dsf_jgh_sdrt {
         height: 150px;

@@ -25,6 +25,9 @@
 </script>
 <style scoped>
     .head_sdrt{
+        display: none;
+    }
+    .head_sdrt{
         height: 45px;
         background: #fff;
         line-height: 45px;

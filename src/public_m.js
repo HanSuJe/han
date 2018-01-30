@@ -1,14 +1,27 @@
 import router from './router'
 import md5 from './js/md5'
 var sd_iux = "http://39.106.190.128"
-
-
+var sd_erttx={}    
+ sd_erttx.user_uuid = '73955cb3-0c38-4b18-83d9-9180a7243ddd'
+ sd_erttx.token = "952bca2e-1ee1-439e-bec8-2d2a07198859"
 
 export default {
     install(Vue, options) {
-        Vue.prototype.ge_t = function (url, cn, xy) {
-            cn.user_uuid = '73955cb3-0c38-4b18-83d9-9180a7243ddd'
-            cn.token = "952bca2e-1ee1-439e-bec8-2d2a07198859"
+          Vue.prototype.Title=function(title) { 
+        
+            document.title = title
+         
+        }
+          
+          
+          
+        Vue.prototype.ge_t = function (url, cn, xy,powe) {
+            
+            cn.user_uuid = sd_erttx.user_uuid
+            if(!powe){
+            cn.token =sd_erttx.token 
+            } 
+            cn.signature=this.getsign(cn)
             this.$http.get(sd_iux + url, {
                 params: cn
             }).then((response) => {
@@ -18,9 +31,12 @@ export default {
             });
         }
 
-        Vue.prototype.post = function (url, cn, xy) {
-            cn.user_uuid = '73955cb3-0c38-4b18-83d9-9180a7243ddd'
-            cn.token = "952bca2e-1ee1-439e-bec8-2d2a07198859"
+        Vue.prototype.post = function (url, cn, xy,powe) {
+             cn.user_uuid = sd_erttx.user_uuid
+              if(!powe){
+                    cn.token =sd_erttx.token
+              }
+            cn.signature=this.getsign(cn)
             this.$http.post(sd_iux + url, cn).then((response) => {
                 xy(response.data)
             }, (response) => {
@@ -29,9 +45,13 @@ export default {
         }
 
 
-        Vue.prototype.put = function (url, cn, xy) {
-            cn.user_uuid = '73955cb3-0c38-4b18-83d9-9180a7243ddd'
-            cn.token = "952bca2e-1ee1-439e-bec8-2d2a07198859"
+        Vue.prototype.put = function (url, cn, xy,powe) {
+               cn.user_uuid = sd_erttx.user_uuid
+          if(!powe){
+                     cn.token =sd_erttx.token
+               }
+          
+            cn.signature=this.getsign(cn)
             this.$http.put(sd_iux + url, cn).then((response) => {
                 xy(response.data)
             }, (response) => {
@@ -40,10 +60,13 @@ export default {
         }
 
 
-        Vue.prototype.delete = function (url, cn, xy) {
+        Vue.prototype.delete = function (url, cn, xy,powe) {
             
-            cn.user_uuid = '73955cb3-0c38-4b18-83d9-9180a7243ddd'
-            cn.token = "952bca2e-1ee1-439e-bec8-2d2a07198859"
+            cn.user_uuid = sd_erttx.user_uuid
+             if(!powe){
+            cn.token =sd_erttx.token
+             }
+            cn.signature=this.getsign(cn)
             console.log(cn)
               this.$http.delete(sd_iux + url, {body:cn}).then((response) => {
                 xy(response.data)
@@ -59,6 +82,28 @@ export default {
                 query: cu
             })
         }
+        
+        
+            //获取cookie
+           Vue.prototype.getCookie=function (cname) {
+                var name = cname + "=";
+                var ca = document.cookie.split(';');
+                for (var i = 0; i < ca.length; i++) {
+                    var c = ca[i];
+                    while (c.charAt(0) == ' ') c = c.substring(1);
+                    if (c.indexOf(name) != -1) return c.substring(name.length, c.length);
+                }
+                return "";
+            }
+           
+              Vue.prototype.setCookie= function (cname, cvalue, exdays) {
+                var d = new Date();
+                d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+                var expires = "expires=" + d.toUTCString();
+                console.info(cname + "=" + cvalue + "; " + expires);
+                document.cookie = cname + "=" + cvalue + "; " + expires;
+                console.info(document.cookie);
+            }
 
         Vue.prototype.yanza = {
             mail: function (a) {
@@ -88,10 +133,9 @@ export default {
             })
 
 
-            console.log(sd_srttx)
-            console.log(md5.hexMD5(sd_srttx))
+            return md5.hexMD5(sd_srttx)
         }
-
+  
 
     }
 }

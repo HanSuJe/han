@@ -13,10 +13,49 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-daifahuo:before { content: "\e600"; }
+
 .icon-check:before { content: "\e615"; }
 
+.icon-pingjia:before { content: "\e61e"; }
+
+.icon-zan:before { content: "\e62c"; }
+
+.icon-buzan:before { content: "\e64c"; }
+
+.icon-custom-service:before { content: "\e616"; }
+
+.icon-iconfontxiaogantanhao:before { content: "\e60d"; }
+
+.icon-xiangji:before { content: "\e63d"; }
+
+.icon-shanchuguanbicha2:before { content: "\e80b"; }
+
+.icon-weixinzhifu:before { content: "\e635"; }
+
+.icon-zhifubao:before { content: "\e665"; }
+
+.icon-iconfontzhizuobiaozhun20:before { content: "\e613"; }
+
+.icon-yifahuo:before { content: "\e6b2"; }
+
+.icon-cha:before { content: "\e605"; }
+
 .icon-left:before { content: "\e78d"; }
+
+.icon-shoucang:before { content: "\e636"; }
+
+.icon-yiqipindan:before { content: "\e6a2"; }
 
 .icon-right:before { content: "\e634"; }
 
 .icon-map:before { content: "\e60b"; }
+
+.icon-refund:before { content: "\e603"; }
+
+.icon-wenhao:before { content: "\e8ea"; }
+
+.icon-gouxuan:before { content: "\e641"; }
+
+.icon-bianji:before { content: "\e685"; }
+

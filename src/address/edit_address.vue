@@ -1,3 +1,4 @@
+<!--地址列表-->
 <template>
 	<div class="add_cade_s">
         <head_r :title="'地址管理'"></head_r>
@@ -29,7 +30,7 @@
                             <span class="fz14 z3 ml5">设为默认地址</span>
                             </span>
                             <span class="fr fz14">
-                                <a class="ls" @click="hf('bianjidz',ds)">编辑</a>
+                                <a class="ls" @click="hf('create_address',ds)">编辑</a>
         <a class="ye ml20" @click="sanchu(idx,ds.uuid)">删除</a>
                             </span>
                             
@@ -44,12 +45,12 @@
             
         </section>
         
-        <a class="bgls ad_sdrtxc" @click="hf('bianjidz')">添加收货地址</a>
+        <a class="bgls ad_sdrtxc pm20" @click="hf('create_address')">添加收货地址</a>
         
 	</div>
 </template>
 <script>
-    import {
+    import { 
         MessageBox
     } from 'mint-ui';
     import head_r from '../components/head_r.vue'
@@ -82,6 +83,7 @@
             }
         },
         mounted() {
+             this.Title("编辑地址")
             var sd_sd = {}, 
                 th=this
             this.ge_t("/v1/user/addersses", sd_sd, function(data) { 
@@ -94,16 +96,7 @@
 
 </script>
 <style scoped>
-    .diz_setx {
-        height: 45px;
-    }
-
-    .map_sdrtxc {
-        width: 40px;
-        height: 65px;
-        line-height: 65px;
-    }
-
+ 
 
 
     .df_kh_eer {
@@ -114,14 +107,5 @@
         padding-bottom: 50px
     }
 
-    .ad_sdrtxc {
-        position: fixed;
-        left: 0px;
-        width: 100%;
-        line-height: 45px;
-        text-align: center;
-        z-index: 100;
-        bottom: 0px;
-    }
 
 </style>
