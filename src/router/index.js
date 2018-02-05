@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import edit_address from '@/user/addresses/edit'
-import new_address from '@/user/addresses/new'
+import edit_address from '@/address/edit_address'
+import create_address from '@/address/create_address'
 import commdoity from '@/indent/commdoity'
 import choiceness from '@/page/choiceness'
 import comment from '@/page/comment'
@@ -17,12 +17,13 @@ Vue.use(Router)
 export default new Router({
     routes: [
         {
+            path: '/edit_address',
             name: 'edit_address',
             component: edit_address
     }, {
-            path: '/user/addresses/new',
-            name: 'new_address',
-            component: new_address
+            path: '/create_address',
+            name: 'create_address',
+            component: create_address
     }, {
             path: '/commdoity',
             name: 'commdoity',
