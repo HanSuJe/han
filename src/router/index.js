@@ -1,13 +1,13 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import edit_address from '@/address/edit_address'
-import create_address from '@/address/create_address'
+import edit_address from '@/account/addresses/edit'
+import new_address from '@/account/addresses/new'
 import commdoity from '@/indent/commdoity'
 import choiceness from '@/page/choiceness'
 import comment from '@/page/comment'
 import confirm_order from '@/page/confirm_order'
 import cashier from '@/refund/cashier'
-import order_list from '@/indent/order_list' 
+import order_list from '@/indent/order_list'
 import lint_item from '@/indent/lint_item'
 import after_sales from '@/page/after_sales'
 import after_sale from '@/page/after_sale'
@@ -17,13 +17,13 @@ Vue.use(Router)
 export default new Router({
     routes: [
         {
-            path: '/edit_address',
+          path: '/account/addresses/edit',
             name: 'edit_address',
             component: edit_address
     }, {
-            path: '/create_address',
-            name: 'create_address',
-            component: create_address
+        path: '/account/addresses/new',
+            name: 'new_address',
+            component: new_address
     }, {
             path: '/commdoity',
             name: 'commdoity',
@@ -48,13 +48,13 @@ export default new Router({
             path: '/order_list',
             name: 'order_list',
             component: order_list
-    }, 
+    },
         {
             path: '/lint_item',
             name: 'lint_item',
             component: lint_item
-    }, 
-        
+    },
+
         {
             path: '/after_sales',
             name: 'after_sales',
