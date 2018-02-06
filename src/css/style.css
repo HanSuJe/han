@@ -1,311 +1,332 @@
 body {
-    padding-bottom: 80px;
+  padding-bottom: 80px;
 }
 
 .dx_body {
-/*    padding-top: 45px;*/
+  /*    padding-top: 45px;*/
 }
 
 .mui-input-group .mui-input-row:after,
 .mui-input-group:before,
 .mui-input-group:after {
-    transform: scaleY(1);
-    background-color: #F5F5F5;
-    left: 0px;
+  transform: scaleY(1);
+  background-color: #F5F5F5;
+  left: 0px;
 }
 
 .mui-input-group {
-    background: transparent;
+  background: transparent;
 }
 
 .sd_gxsd {
-    background: #D8D8D8;
-    width: 22px;
-    height: 22px;
-    text-align: center;
-    line-height: 20px;
+  background: #D8D8D8;
+  width: 22px;
+  height: 22px;
+  text-align: center;
+  line-height: 20px;
 }
 
 .sd_gxsd.act {
-    background: #46C47B
+  background: #46C47B
 }
 
 .sd_gxsd i.dx {
-    color: #fff;
-    display: none
+  color: #fff;
+  display: none
 }
 
 .sd_gxsd.act i.dx {
-    display: inline-block
+  display: inline-block
 }
 
 .selected_city {}
 
 .mint-popup-bottom {
-    width: 100%;
-    background: #fff;
-    border: 0px;
+  width: 100%;
+  background: #fff;
+  border: 0px;
 }
 
 input::-webkit-input-placeholder,
 textarea::-webkit-input-placeholder {
-    color: #AAAAAA;
+  color: #AAAAAA;
 }
 
 input:-moz-placeholder,
 textarea:-moz-placeholder {
-    color: #AAAAAA;
+  color: #AAAAAA;
 }
 
 input::-moz-placeholder,
 textarea::-moz-placeholder {
-    color: #AAAAAA;
+  color: #AAAAAA;
 }
 
 input:-ms-input-placeholder,
 textarea:-ms-input-placeholder {
-    color: #AAAAAA;
+  color: #AAAAAA;
 }
 
 .mint-swipe-indicator {
-    background: #DDDDDD;
-    opacity: 1;
+  background: #DDDDDD;
+  opacity: 1;
 }
 
 .mint-swipe-indicator.is-active {
-    background: #33E481;
+  background: #33E481;
 }
 
 .head_sdrt {
-    height: 45px;
-    background: #fff;
-    line-height: 45px;
-    position: fixed;
-    left: 0px;
-    top: 0px;
-    width: 100%;
-    z-index: 1000
+  height: 45px;
+  background: #fff;
+  line-height: 45px;
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  z-index: 1000
 }
 
 .tujh_dt {
-    position: absolute;
-    left: 10px;
-    top: 0px;
-    font-size: 20px
+  position: absolute;
+  left: 10px;
+  top: 0px;
+  font-size: 20px
 }
 
 .fenxiasrcc {
-    position: absolute;
-    right: 10px
+  position: absolute;
+  right: 10px
 }
 
 .bkyy {
-    box-shadow: 0 0px 8px rgba(0, 0, 0, .1);
+  box-shadow: 0 0px 8px rgba(0, 0, 0, .1);
 }
 
 .uyg_uih_srtxc {
-    width: 48px;
-    height: 48px;
+  width: 48px;
+  height: 48px;
 }
 
 .dfg_jh_ret {
-    margin-top: 5px;
+  margin-top: 5px;
 }
 
 .sd_jG_drtx {
-    border-radius: 20px;
-    position: absolute;
-    right: 10px;
-    top: 20px;
-    padding: 4px 9px;
+  border-radius: 20px;
+  position: absolute;
+  right: 10px;
+  top: 20px;
+  padding: 4px 9px;
 }
 
 .toiy_eswet {
-    line-height: 44px;
+  line-height: 44px;
 }
 
 .user_iysdf {
-    width: 30px;
-    height: 30px;
+  width: 30px;
+  height: 30px;
 }
 
 .tibu_jhsd {
-    position: fixed;
-    left: 0px;
-    bottom: 0px;
-    width: 100%;
-    height: 65px;
-    background: #fff;
-    z-index: 999;
+  position: fixed;
+  left: 0px;
+  bottom: 0px;
+  width: 100%;
+  height: 65px;
+  background: #fff;
+  z-index: 999;
 }
 
 .d_jgh_ddtx input {
-    border-radius: 20px;
-    background: #F5F5F5;
-    border: 1px solid #F5F5F5;
-    font-size: 14px;
-    text-indent: 30px;
+  border-radius: 20px;
+  background: #F5F5F5;
+  border: 1px solid #F5F5F5;
+  font-size: 14px;
+  text-indent: 30px;
 }
 
 .fd_jgh_bsrt {
-    position: absolute;
-    left: 15px;
-    top: 15px;
+  position: absolute;
+  left: 15px;
+  top: 15px;
 }
 
 .dsf_jh_de {
-    line-height: 50px;
+  line-height: 50px;
 }
 
 .dsf_jh_de .dx {
-    position: relative;
-    bottom: 2px;
+  position: relative;
+  bottom: 2px;
 }
 
 .diz_setx {
-    height: 45px;
+  height: 45px;
 }
 
 .map_sdrtxc {
-    width: 40px;
-    height: 65px;
-    line-height: 65px;
+  width: 40px;
+  height: 65px;
+  line-height: 65px;
 }
 
 .dsf_kjh_derr {
-    width: 180px;
-    height: 30px;
-    border-radius: 20px;
-    overflow: hidden
+  width: 180px;
+  height: 30px;
+  border-radius: 20px;
+  overflow: hidden
 }
 
 .dsf_kjh_derr input {
-    height: 100%;
-    text-indent: 0px;
-    padding: 0px;
-    border: 0px !important
+  height: 100%;
+  text-indent: 0px;
+  padding: 0px;
+  border: 0px !important
 }
 
 .dsf_hjgh_ser {
-    background: #F5F5F5;
-    height: 100%;
+  background: #F5F5F5;
+  height: 100%;
 }
 
 .dsf_hjgh_ser {
-    text-align: center;
-    line-height: 30px;
+  text-align: center;
+  line-height: 30px;
 }
 
 .dsf_hjgh_ser span {
-    font-size: 30px;
+  font-size: 30px;
 }
 
 .mb8 {
-    margin-bottom: 8px;
+  margin-bottom: 8px;
 }
 
 .dsf_hjgh_ser.aa span {
-    position: relative;
-    bottom: 2px;
+  position: relative;
+  bottom: 2px;
 }
 
 .dsf_hjgh_ser.ab span {
-    position: relative;
-    bottom: 1px;
+  position: relative;
+  bottom: 1px;
 }
 
 .lser {
-    color: #1AACEB
+  color: #1AACEB
 }
 
 .user_iyer {
-    width: 30px;
-    height: 30px;
+  width: 30px;
+  height: 30px;
 }
 
 .dsf_jgh_err {
-    height: 80px;
-    background: linear-gradient(to right, #33E481, #37B46E);
+  height: 80px;
+  background: linear-gradient(to right, #33E481, #37B46E);
 }
 
 .ds_jh_drttx {
-    line-height: 80px;
+  line-height: 80px;
 }
 
 .pr50 {
-    padding-right: 50px;
+  padding-right: 50px;
 }
 
 .adsf_asd {
-    width: 120px;
-    height: 30px;
-    display: inline-block;
-    text-align: center;
-    line-height: 30px;
+  width: 120px;
+  height: 30px;
+  display: inline-block;
+  text-align: center;
+  line-height: 30px;
 }
 
 .xiugai {
-    position: absolute;
-    right: 10px;
-    top: 35px;
-    width: 50px;
-    text-align: center;
-    line-height: 30px;
+  position: absolute;
+  right: 10px;
+  top: 35px;
+  width: 50px;
+  text-align: center;
+  line-height: 30px;
 }
 
 .xiugai.ab {
-    top: 10px;
+  top: 10px;
 }
 
 .sdf_er_dretrx {
-    font-size: 14px;
-    line-height: 28px
+  font-size: 14px;
+  line-height: 28px
 }
 
 .df_rx_ertx {
-    position: fixed;
-    left: 0px;
-    bottom: 0px;
-    height: 65px;
-    width: 100%;
-    background: #fff;
-    z-index: 99
+  position: fixed;
+  left: 0px;
+  bottom: 0px;
+  height: 65px;
+  width: 100%;
+  background: #fff;
+  z-index: 99
 }
 
 .dsf_jh_ert {
-    display: inline-block;
-    height: 38px;
-    line-height: 38px;
-    width: 100px;
-    text-align: center;
-    margin-top: 6px;
+  display: inline-block;
+  height: 38px;
+  line-height: 38px;
+  width: 100px;
+  text-align: center;
+  margin-top: 6px;
 }
 
 .sd_iyh_er {
-    line-height: 44px;
+  line-height: 44px;
 }
 
 .dsf_kjh_derr {
-    position: absolute;
-    right: 10px;
-    top: 7px
+  position: absolute;
+  right: 10px;
+  top: 7px
 }
 
 .ad_sdrtxc {
-    position: fixed;
-    left: 0px;
-    width: 100%;
-    line-height: 45px;
-    text-align: center;
-    z-index: 100;
-    bottom: 0px;
+  position: fixed;
+  left: 0px;
+  width: 100%;
+  line-height: 45px;
+  text-align: center;
+  z-index: 100;
+  bottom: 0px;
 }
 
 .tou_dertxc {
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
+.mint-navbar {
+  padding: 0 20%;
+}
+
+.mint-navbar .mint-tab-item {
+  padding: 14px 0;
+  font-size: 15px;
+}
+
+.mint-navbar .mint-tab-item .mint-tab-item-label {
+  color: inherit;
+  font-size: 14px !important;
+  line-height: 1;
+}
+
+.mint-navbar .mint-tab-item.is-selected {
+  border-bottom: 3px solid #26a2ff;
+  color: #26a2ff;
+  box-sizing: border-box;
 }
