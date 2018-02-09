@@ -7,7 +7,7 @@ import './css/iconfont.css'
 import './css/mui.min.css'
 import './css/base.css'
 import './css/style.css'
-import VueResource from 'vue-resource'; 
+import VueResource from 'vue-resource';
 import router from './router'
 import public_m from './public_m'
 import MintUI from 'mint-ui'
@@ -19,10 +19,10 @@ Vue.use(VueResource)
 Vue.config.productionTip = false
 /* eslint-disable no-new */
 new Vue({
-    el: '#app',
-    router,
-    template: '<App/>',
-    components: {
-        App
-    }
+  el: '#app',
+  router,
+  template: '<App/>',
+  components: {
+    App
+  }
 })
