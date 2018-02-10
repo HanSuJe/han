@@ -2,8 +2,6 @@ import router from './router'
 import md5 from './js/md5'
 var sd_iux = "http://39.107.86.17"
 var sd_erttx = {}
-// sd_erttx.user_uuid = '73955cb3-0c38-4b18-83d9-9180a7243ddd'
-// sd_erttx.token = "952bca2e-1ee1-439e-bec8-2d2a07198859"
 sd_erttx.user_uuid = 'ed529804-6c1e-49c1-98d7-29900b63d180'
 sd_erttx.token = 'b0ddb063-6bed-4a65-ba78-0bd48d687522'
 export default {
