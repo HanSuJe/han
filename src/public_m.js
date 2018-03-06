@@ -2,8 +2,8 @@ import router from './router'
 import md5 from './js/md5'
 var sd_iux = "http://39.107.86.17"
 var sd_erttx = {}
-sd_erttx.user_uuid = 'ed529804-6c1e-49c1-98d7-29900b63d180'
-sd_erttx.token = 'b0ddb063-6bed-4a65-ba78-0bd48d687522'
+sd_erttx.user_uuid = 'cd93bfa6-645d-4ddf-9aab-b86d14107bf1'
+sd_erttx.token = '7e26e3e5-3955-4759-b6cf-9e960e15f3f1'
 export default {
   install(Vue, options) {
     Vue.prototype.Title = function (title) {
