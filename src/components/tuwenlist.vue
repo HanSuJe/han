@@ -4,53 +4,50 @@
     <p class="dsf_jhg_ds cen">
         <span class="ye fz18">{{title}}</span>
     </p>
-        
+
     <section class="sd_kh_row pl5 mui-row">
-            <section class="pr5 mui-col-xs-6 mb5" v-for="dsf in 4">
+            <section class="pr5 mui-col-xs-6 mb5" v-for="product in productsChoice">
                     <section class="drf_jhgr_rer bgff">
                         <p class="sd_iy_img">
-                             <img src="static/img/longxia.jpg">
+                             <img :src="product.image" alt="商品图片">
                         </p>
                         <section class="pd">
-                        
+
                         <p class="fz16 z3 dianer  pt10">
-    
-                            恒都 澳洲牛腩块 500克/一袋 草饲牛肉 包邮
+                           {{product.title}}
                         </p>
                             <p class="mt10 pm10">
-                            <span class="ye fz24">¥ 27.8</span>
+                            <span class="ye fz24">{{product.original_price}}</span>
                                 <span class="yj dd_sd_dsdf">拼</span>
                             </p>
-                            
+
                             </section>
-                       
-                
+
+
                     </section>
-    
+
             </section>
-    
-    </section>    
-        
-        
-        
+
+    </section>
+
+
+
 	</div>
 </template>
 <script>
-  
+
     export default {
-        props:{
-          title:""  
-        },
+        props:['title','productsChoice'],
         data() {
             return {
-              
+
             }
         },
         components: {
-          
+
         },
         methods: {
-           
+
         },
       mounted(){
 

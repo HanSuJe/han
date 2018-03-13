@@ -1,15 +1,15 @@
 <!--详情-->
 <template>
 	<div >
-      
+
 <!--        轮播图-->
         <section class="lunbotu pr">
             <p class="lunbot_tou pd">
                 <i class="dx icon-left z3 hjg_erttc yj"></i>
-                
+
                  <i class="dx icon-iconfontzhizuobiaozhun20 z3 hjg_erttc yj ab"></i>
             </p>
-    
+
     <mt-swipe :auto="4000">
   <mt-swipe-item>
         <img src="static/img/longxia.jpg">
@@ -18,69 +18,69 @@
   <mt-swipe-item>  <img src="static/img/longxia.jpg"></mt-swipe-item>
 </mt-swipe>
         </section>
-        
+
         <section class="bgff pd">
           <p class="fz16 z3 pt15 pm10">
-恒都 澳洲牛腩块 500克/一袋 草饲牛肉 包邮恒都 澳洲牛腩块 500克/一袋 草饲牛肉 包邮
-            
+{{goodsDetail.title}}
+
         </p>
             <section class="mui-row mt5">
-        <span class="fz24 ye">￥ 23.2</span>
-                <del class="fz14 z9 ml10">32.2元</del>
-                <span class="ye fz12 fr mt2">已拼123件·3件起拼</span>
-                
+        <span class="fz24 ye">{{goodsDetail.price}}</span>
+                <del class="fz14 z9 ml10">{{goodsDetail.original_price}}元</del>
+                <span class="ye fz12 fr mt2">{{goodsDetail.sold_count}}</span>
+
     </section>
     <section class="mui-row mt15 pm10">
         <p class="mui-col-xs-4 ls">
             <i class="dx icon-gouxuan ls cz fz18 mr5 df_dr_dr"></i>
-            包邮
+            {{serviceNote[0].label}}
         </p>
              <p class="mui-col-xs-4 cen ls" @click="fuwusm=true">
             <i class="dx icon-gouxuan ls cz fz18 mr5 df_dr_dr"></i>
-            七天无理由
+               {{serviceNote[1].label}}
         </p>
-        
+
                 <p class="mui-col-xs-4 ls tr" @click="fuwusm=true">
                     <i class="dx icon-iconfontxiaogantanhao ls cz fz18 mr5 "></i>
         </p>
-        
+
     </section>
-            
-            
+
+
         </section>
-        
+
         <section class="pd pt10 pm10 bgff mt10 mui-row pr">
                 <span class="z9 fz14 fl">促销</span>
                 <p class="ov pl10  dsf_jh_ert ls fz12">
-                        优惠，使用余额支付，每单减2元<br>
-                    双11狂欢节 全免费
+                        {{promotionInfos[0].label}}，{{promotionInfos[0].desc}}<br>
+                  {{promotionInfos[1].label}}，{{promotionInfos[1].desc}}
                 </p>
-            
+
                        <i class="dx icon-iconfontxiaogantanhao ls cz fz18  dsf_jh_erert " @click="chuxiao=true"></i>
             </section>
-        
-        
+
+
         <section class="mt10 dsf_jg_drt bgff pd fz14 mui-row">
 有<span class="ye">123</span>人正在拼单
             <span class="z6 fr">
     查看全部 <i class="dx icon-right "> </i>
     </span>
     </section>
-        
-   
+
+
             <ul class="df_jg_ert">
             <li class="pd pr" v-for="dsf in 2">
-                <img src="static/img/longxia.jpg" class="user_iysdf yj cz">    
+                <img src="static/img/longxia.jpg" class="user_iysdf yj cz">
                 <span class="ml10 fz14 z3">用户昵称用户昵称</span>
                 <p class="sd_jgh_eert fz14">
                     还差1人<br>
                     <span class="ye fz12">剩余20:32:28</span>
                 </p>
                 <span class="gfohgf_drt yj">GO</span>
-                
+
             </li>
             </ul>
-        
+
             <section class="bgff mt10">
             <p class="toiy_eswet z3 fz14 pd">
     商品评价(120)
@@ -96,47 +96,47 @@
     规格：500g/袋
                             </p>
                         </section>
-                
+
                     </section>
                     <section class="ov  z9 fz12 tr pt10">
                             17/12/8
-                    </section> 
-                        
-                        
-                        
+                    </section>
+
+
+
                 </section>
-                    
+
                     <p class="z3 mt10">
                             如果你无法简洁的表达你的想法，那只说明你不够了解它。如果你无法简洁的表达你的想法，那只说明你不够了解它。如果你无法简洁的表达你的想法，那只说明你不够了解它。
                         </p>
-    
+
                 </li>
-            
+
             </ul>
                 <p class="toiy_eswet ls cen btm">
     查看全部评价
             </p>
-                
-                
-    
+
+
+
         </section>
-        
-        
+
+
         <section class="bgff pd pt10 pm10 mt10 pr">
             <img src="static/img/longxia.jpg" class="uyg_uih_srtxc cz fl">
             <section class="ov pl10">
-                <p class="fz16 z3">店铺名称</p>
+                <p class="fz16 z3">{{goodsDetail.shop.name}}</p>
 
                 <p class="fz12 z3 dfg_jh_ret">
-    已拼单2000件 <span class="ml10">商品数量:300</span>
+    {{goodsDetail.shop.sales_volume}} <span class="ml10">{{goodsDetail.shop.product_count}}</span>
                 </p>
             </section>
-            
+
             <span class="bgls sd_jG_drtx">进店</span>
-            
+
             <p class="qc"></p>
         </section>
-        
+
 
            <section class="bgff mt10">
             <p class="toiy_eswet z3 fz14 pd">
@@ -148,94 +148,94 @@
                          <img src="static/img/xq_b.png" class="w100">
                          <img src="static/img/xq_c.png" class="w100">
             </section>
-               
-               
+
+
     </section>
- 
-        
-        <tuwenlist :title="'每日精选'"></tuwenlist>
-        
+
+
+        <tuwenlist :title="'每日精选'" :productsChoice="productsChoice"></tuwenlist>
+
 <!--        底部-->
-        
+
         <section class="sjg_tibu pd btm">
                 <span class="yj ds_jh_drtx cz bkyy">
                     <i class="dx icon-custom-service ls fz24"></i>
                 </span>
-            
+
             <span class="bkyy yj20 ye fz12 dsfjgh_sertc ml5" @click="gmfuwu=true">
             ￥29 原价买
             </span>
-            
+
             <span class="bkyy bgye yj20 fz12 dsfjgh_sertc ab ml10"  @click="gmfuwu=true">
     ¥ 20.5 拼单2
             </span>
-            
+
                  <span class="yj ds_jh_drtx cz bkyy ab">
                     <i class="dx icon-shoucang z9 fz24"></i>
                 </span>
-    
+
             </section>
-        
-        
+
+
 <!--        服务说明-->
-            <mt-popup v-model="fuwusm" position="bottom" class="df_jh_derttx">  
+            <mt-popup v-model="fuwusm" position="bottom" class="df_jh_derttx">
                      <i class="dx icon-shanchuguanbicha2 ye fz32 close_serttx yj" @click="fuwusm=false"></i>
-                
-                
+
+
                         <p class="cen pt20 pm10 fz16">服务说明</p>
-                
-                  <section class="mui-row pr pd mt10" >
-      <img src="static/img/longxia.jpg" class="user_iysdf yj cz fl">    
+
+                  <section class="mui-row pr pd mt10"  v-for="service in serviceNote">
+      <img :src="service.icon" class="user_iysdf yj cz fl">
          <p class="ov pl10  dsf_jh_ert ls fz12">
-                       包邮<br>
-                    由商家发货，免邮费
+                       {{service.label}}<br>
+                    {{service.desc}}
                 </p>
-                   
-                     
+
+
             </section>
-                
-                
+<!--
+
                          <section class="mui-row pr pd mt10" >
-      <img src="static/img/longxia.jpg" class="user_iysdf yj cz fl">    
+      <img src="static/img/longxia.jpg" class="user_iysdf yj cz fl">
          <p class="ov pl10  dsf_jh_ert ls fz12">
                        七天无理由退货<br>
                    支持7天无理由退货
                 </p>
-      
-                     
-            </section>
-                
-                
+
+
+            </section>-->
+
+
                               <p class="bgls fz16 pt10 pm10 cen mt40" @click="fuwusm=false">
     确认
             </p>
-                
-                
+
+
     </mt-popup>
-        
+
 <!--      促销弹出层-->
-           <mt-popup v-model="chuxiao" position="bottom" class="df_jh_derttx">  
+           <mt-popup v-model="chuxiao" position="bottom" class="df_jh_derttx">
                <i class="dx icon-shanchuguanbicha2 ye fz32 close_serttx yj" @click="chuxiao=false"></i>
                <p class="cen pt20 pm10 fz16">促销</p>
-               
+
                <section class="mui-row pr">
-    
+
          <p class=" pl10  dsf_jh_ert ls fz12">
-                        优惠，使用余额支付，每单减2元<br>
-                    双11狂欢节 全免费
+           {{promotionInfos[0].label}}，{{promotionInfos[0].desc}}<br>
+           {{promotionInfos[1].label}}，{{promotionInfos[1].desc}}
                 </p>
-                   
+
                       <i class="dx icon-gouxuan ls cz fz18  dsf_jh_erert ab"></i>
             </section>
-               
+
                <p class="bgls fz16 pt10 pm10 cen mt40" @click="chuxiao=false">
     确认
             </p>
-               
+
     </mt-popup>
-        
+
         <!--        购买服务弹出层-->
-            <mt-popup v-model="gmfuwu" position="bottom" class="df_jh_derttx">  
+            <mt-popup v-model="gmfuwu" position="bottom" class="df_jh_derttx">
                      <i class="dx icon-shanchuguanbicha2 ye fz32 close_serttx yj" @click="gmfuwu=false"></i>
                 <p class="dsf_jhg_dertx">
             <img src="static/img/longxia.jpg">
@@ -248,21 +248,21 @@
     保温袋干冰
 
     </p>
-                
+
      <section class="mt20 pd">
         <section class="mui-row pl10" v-for="(ge,idx) in hgs_na">
             <p class="fz12 df_jgh_dr  z3 fl pt5">{{ge.name}}</p>
             <p class="ov pt5">
         <span class="sd_hgsd_sd bkyy yj20 fz14" :class="sdf.cls" v-for="(sdf,idxer) in ge.guige" @click="sd_jghs(idx,idxer)">{{sdf.name}}</span>
-    
+
             </p>
-        
+
         </section>
-         
+
           <section class="mui-row pl10 mt10" >
             <p class="fz12 df_jgh_dr  z3 fl pt10">数量</p>
         <section class="ov pt5">
-                        
+
             <section class="dsf_kjh_derr mui-row br">
                     <p class="mui-col-xs-3 dsf_hjgh_ser aa" @click="sd_sd_sd(1)">
         <span>-</span>
@@ -270,34 +270,34 @@
            <p class="mui-col-xs-6 h100">
                 <input type="text" class="w100 cen"  v-model="num">
             </p>
-                
+
                     <p class="mui-col-xs-3 dsf_hjgh_ser ab" @click="sd_sd_sd(0)">
          <span>+</span>
     </p>
-            </section>    
-                
+            </section>
+
         </section>
     </section>
-         
 
-         
-         
-         
+
+
+
+
     </section>
-                         
+
          <p class="bgls fz16 pt10 pm10 cen mt40" @click="gmfuwu=false">
     确认
             </p>
-                
+
     </mt-popup>
-        
-        
+
+
 	</div>
 </template>
 <script>
     import tuwenlist from "../components/tuwenlist.vue"
     export default {
-        data() { 
+        data() {
             return {
                 chuxiao: false,
                 fuwusm: false,
@@ -333,13 +333,46 @@
                         sf:"0"
                     }]
                 }],
-                num:1
+                num:1,
+              //我写的部分
+              goodsDetail:{},
+              serviceNote:[],//服务
+              promotionInfos:[],//促销
+              productsChoice:[],//每日精选
             }
         },
         components: {
             tuwenlist: tuwenlist
         },
+      mounted() {
+        this.Title("商品详情")
+        this.getGoodsDetail();
+        this.getGoodsStyle();
+      },
         methods: {
+            //获取弹出层获取商品的尺寸等信息
+            getGoodsStyle(){
+              this.$http.get("http://39.107.86.17/v1/mall/products/style?user_uuid=6b0fe7a1-1384-49ab-a324-5734910d4b38&uuid=158aa490-124c-43d4-b566-35e8c3465e8f&labels").then((res)=>{
+
+              },(err)=>{
+
+              });
+            },
+            //获取商品详情信息
+            getGoodsDetail(){
+              this.$http.get('http://39.107.86.17/v1/mall/products?user_uuid=6b0fe7a1-1384-49ab-a324-5734910d4b38&style_uuid=8cfa89f3-a17a-46ac-aed8-15285d9d0248').then((res)=>{
+
+                 if(res.status === 200){
+                     this.goodsDetail =res.data.data;
+                     this.serviceNote = this.goodsDetail.service_note;
+                     this.promotionInfos = this.goodsDetail.promotion_infos;
+                     this.productsChoice = this.goodsDetail.products_for_choice.products;
+                   console.log("商品的详情信息是:",this.goodsDetail);
+                 }
+              },(err)=>{
+
+              });
+            },
             sd_jghs(idx,idxer){
                if( this.hgs_na[idx].guige[idxer].sf==1){
                    return
@@ -348,7 +381,7 @@
                     a.cls=""
                 })
                 this.hgs_na[idx].guige[idxer].cls="act"
-                
+
             },
             sd_sd_sd(ty){
                 if(ty==0){
@@ -357,13 +390,11 @@
                     if(this.num>1){
                           this.num--
                     }
-                  
+
                 }
             }
         },
-        mounted() {
-    this.Title("商品详情")
-        },
+
     }
 
 </script>
@@ -371,12 +402,12 @@
     .lunbotu {
         height: 23.4rem;
     }
-    
+
     .lunbotu img {
         width: 100%;
         height: 100%;
     }
-    
+
     .lunbot_tou {
         position: absolute;
         left: 0px;
@@ -384,7 +415,7 @@
         width: 100%;
         z-index: 999;
     }
-    
+
     .hjg_erttc {
         background: #fff;
         display: inline-block;
@@ -393,25 +424,25 @@
         line-height: 24px;
         text-align: center;
     }
-    
+
     .hjg_erttc.ab {
         float: right;
     }
-    
+
     .df_dr_dr {
         position: relative;
         bottom: 1px
     }
-    
+
     .dsf_jg_drt {
         line-height: 44px;
     }
-    
+
     .dsf_jh_ert {
         text-align: left;
         line-height: 1.5
     }
-    
+
     .df_jg_ert li {
         height: 60px;
         background: #fff;
@@ -419,7 +450,7 @@
         margin-top: 10px;
         line-height: 60px;
     }
-    
+
 
     .sd_jgh_eert {
         position: absolute;
@@ -428,7 +459,7 @@
         line-height: 1.4;
         text-align: right;
     }
-    
+
     .gfohgf_drt {
         width: 36px;
         height: 36px;
@@ -441,27 +472,27 @@
         right: -18px;
         top: 18px;
     }
-    
+
     .df_jg_ert {
         padding-left: 15px;
         padding-right: 33px;
     }
-    
 
 
-    
-   
-    
+
+
+
+
     .dsf_jh_erert {
         position: absolute;
         right: 15px;
         top: 20px;
     }
-    
+
     .dsf_jh_erert.ab {
         top: 12px;
     }
-    
+
     .sjg_tibu {
         line-height: 50px;
         height: 65px;
@@ -472,9 +503,9 @@
         z-index: 1000;
         width: 100%;
     }
-    
-    
-    
+
+
+
     .ds_jh_drtx {
         display: inline-block;
         width: 38px;
@@ -482,11 +513,11 @@
         text-align: center;
         line-height: 38px;
     }
-    
+
     .dsfjgh_sertc {
         padding: 9px 14px;
     }
-    
+
     .dsfjgh_sertc.ab {
         padding: 9px 20px;
         width: 40%;
@@ -500,39 +531,39 @@
             width: 34%;
         }
     }
-    
+
     .ds_jh_drtx.ab {
         position: absolute;
         right: 10px;
         top: 7px;
     }
-    
+
     .df_jh_derttx {
         border-top-left-radius: 20px;
         border-top-right-radius: 20px;
     }
-    
+
     .close_serttx {
         position: absolute;
         right: 10px;
         top: -10px;
         background: #fff;
     }
-    
+
     .dsf_jhg_dertx {
         text-align: center;
         padding-top: 20px;
     }
-    
+
     .dsf_jhg_dertx img {
         width: 200px;
         height: 200px;
     }
-    
+
     .df_jgh_dr {
         width: 40px;
     }
-    
+
     .sd_hgsd_sd {
         padding: 5px 15px;
         margin-right: 10px;
@@ -548,8 +579,8 @@
         left: 0px;
         top: 0px;
     }
-    
 
-    
- 
+
+
+
 </style>

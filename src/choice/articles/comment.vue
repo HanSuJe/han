@@ -46,7 +46,7 @@
 	</div>
 </template>
 <script>
-   import head_r from '../components/head_r.vue'
+   import head_r from '../../components/head_r.vue'
     export default {
         data() {
             return {
