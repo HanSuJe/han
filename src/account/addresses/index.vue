@@ -60,7 +60,7 @@
           if (action) {
             this.dizi_s.splice(idx, 1)
 
-            th.delete("/v1/user/addersses", {uuid: uid})
+            th.delete("/v1/user/addresses", {uuid: uid})
           }
         });
       },
@@ -75,7 +75,7 @@
       this.Title("编辑地址")
       var sd_sd = {},
         th = this
-      this.ge_t("/v1/user/addersses", sd_sd, function (data) {
+      this.ge_t("/v1/user/addresses", sd_sd, function (data) {
         th.dizi_s = data.data
       })
     }

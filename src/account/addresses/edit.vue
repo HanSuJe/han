@@ -13,7 +13,7 @@
 
           <div class="mui-input-row fz14">
             <label>联系电话</label>
-            <input type="tel" class="mui-input-clear fz14" placeholder="" v-model="form_s.mobile">
+            <input type="tel" class="mui-input-clear fz14" placeholder="" v-model="form_s.phone">
           </div>
 
           <div class="mui-input-row fz14 pr" @click="popupVisible=true">
@@ -54,7 +54,7 @@ export default {
       popupVisible: false,
       form_s: {
         name: "", //收货人姓名
-        mobile: "", //手机号码
+        phone: "", //手机号码
         diqu: "",
         province: "", //省份
         city: "", //城市
@@ -82,7 +82,7 @@ export default {
       let th = this;
       MessageBox.confirm("你确定要删除吗?").then(action => {
         if (action) {
-          th.delete("/v1/user/addersses", { uuid: uid }, function() {
+          th.delete("/v1/user/addresses", { uuid: uid }, function() {
             th.hf("");
           });
         }
@@ -103,11 +103,11 @@ export default {
         this.alert("请输入收货人");
         return;
       }
-      if (!this.form_s.mobile) {
+      if (!this.form_s.phone) {
         this.alert("请输入联系电话");
         return;
       }
-      if (!this.yanza.phone(this.form_s.mobile)) {
+      if (!this.yanza.phone(this.form_s.phone)) {
         this.alert("联系电话格式错误");
         return;
       }
@@ -130,14 +130,14 @@ export default {
       var th = this;
 
       if (this.form_s.uuid) {
-        this.put("/v1/user/addersses", this.form_s, function(data) {
+        this.put("/v1/user/addresses", this.form_s, function(data) {
           if (data.code == 200) {
             th.hf("");
           }
         });
         return;
       }
-      this.post("/v1/user/addersses", this.form_s, function(data) {
+      this.post("/v1/user/addresses", this.form_s, function(data) {
         if (data.code == 200) {
           th.hf("");
         }
