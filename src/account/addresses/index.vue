@@ -72,7 +72,7 @@
       }
     },
     mounted() {
-      this.Title("编辑地址")
+      this.Title("收货地址")
       var sd_sd = {},
         th = this
       this.ge_t("/v1/user/addresses", sd_sd, function (data) {
