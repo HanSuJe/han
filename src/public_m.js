@@ -1,15 +1,14 @@
 import router from './router'
 import md5 from './js/md5'
+import $cookie from "@/tools/cookie"
 var sd_iux = "http://39.107.86.17"
 var sd_erttx = {}
-sd_erttx.user_uuid = '21d04498-8bb4-4b06-8ffd-890e34b15b82'
-sd_erttx.token = 'e54a7220-fea2-42f8-a7be-b3c35ca4b051'
+sd_erttx.user_uuid = $cookie.get('user_uuid')
+sd_erttx.token = $cookie.get('token')
 export default {
   install(Vue, options) {
     Vue.prototype.Title = function (title) {
-
       document.title = title
-
     }
 
     Vue.prototype.ge_t = function (url, cn, xy, powe) {
