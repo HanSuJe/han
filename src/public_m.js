@@ -3,7 +3,9 @@ import md5 from './js/md5'
 import $cookie from "@/tools/cookie"
 var sd_iux = "http://39.107.86.17"
 var sd_erttx = {}
-sd_erttx.user_uuid = $cookie.get('user_uuid')
+alert($cookie.get('user_uuid'));
+alert($cookie.get('token'));
+sd_erttx.user_uuid = $cookie.get('user_uuid');
 sd_erttx.token = $cookie.get('token')
 export default {
   install(Vue, options) {
