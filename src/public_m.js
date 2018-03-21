@@ -112,7 +112,7 @@ export default {
       },
       phone: function (a) {
         var b = !1;
-        return a.match(/^13[0-9]{9}|15[0-9]{9}|17[0-9]{9}|18[0-9]{9}$/) && 11 == a.length && (b = !0), b
+        return a.match(/^1[0-9]{10}$/) && 11 == a.length && (b = !0), b
       },
       car_t: function (a) {
         var b = !1;

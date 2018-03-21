@@ -15,6 +15,7 @@ import after_sale from '@/page/after_sale'
 import after_details from '@/page/after_details'
 import after_details_two from '@/page/after_details_two'
 import good_goods from '@/page/good_goods'
+import product_details from '@/mall/products/details'
 Vue.use(Router)
 export default new Router({
   routes: [{
@@ -62,7 +63,11 @@ export default new Router({
       name: 'lint_item',
       component: lint_item
     },
-
+    {
+      path: '/mall/products/details',
+      name: 'product_details',
+      component: product_details
+    },
     {
       path: '/after_sales',
       name: 'after_sales',

@@ -153,7 +153,7 @@
     </section>
 
 
-        <tuwenlist :title="'每日精选'" :productsChoice="productsChoice"></tuwenlist>
+        <!--<tuwenlist :title="'每日精选'" :productsChoice="productsChoice"></tuwenlist>-->
 
 <!--        底部-->
 
@@ -295,7 +295,7 @@
 	</div>
 </template>
 <script>
-    import tuwenlist from "../components/tuwenlist.vue"
+    import details from "../mall/products/details.vue"
     export default {
         data() {
             return {
@@ -342,7 +342,7 @@
             }
         },
         components: {
-            tuwenlist: tuwenlist
+//            tuwenlist: tuwenlist
         },
       mounted() {
         this.Title("商品详情")
@@ -360,7 +360,7 @@
             },
             //获取商品详情信息
             getGoodsDetail(){
-              this.$http.get('http://39.107.86.17/v1/mall/products?user_uuid=6b0fe7a1-1384-49ab-a324-5734910d4b38&style_uuid=8cfa89f3-a17a-46ac-aed8-15285d9d0248').then((res)=>{
+              this.$http.get('http://39.107.86.17/v1/mall/products?user_uuid=6b0fe7a1-1384-49ab-a324-5734910d4b38&style_uuid=e5090e0a-8be8-44d7-b9c0-ab9ca9d24780').then((res)=>{
 
                  if(res.status === 200){
                      this.goodsDetail =res.data.data;

@@ -3,7 +3,7 @@
 	<div >
           <head_r :title="'订单详情'"></head_r>
         <section class="dx_body">
-            
+
             <section v-if="tyoe==0">
                 <section class="dsf_jgh_err mui-row pd">
             <p class="mui-col-xs-2  h100 ds_jh_drttx">
@@ -14,12 +14,12 @@
     拼单中…
     </p>
                         <p class="fz14 cf mt5">
-    
-    
+
+
     邀请好友拼单</p>
     </section>
             </section>
-            
+
               <section class="mt10 bgff pd pt10 pm10 mui-row">
             <section class="mui-col-xs-8 ">
                 <p class="z3">等待分享,还差4人</p>
@@ -27,24 +27,24 @@
                 <p class="dsf_jh_erx yj ov bgls">
                 <img src="static/img/longxia.jpg" >
                 </p>
-                    
+
                      <p class="dsf_jh_erx yj ov bgls" v-for="df in 4">
-            <i class="dx icon-wenhao "></i>                 
+            <i class="dx icon-wenhao "></i>
     </p>
                 </section>
-                
+
             </section>
-                
+
                       <section class="mui-col-xs-4 tr">
-              <p class="ye ">剩余：23:34:23</p>     
+              <p class="ye ">剩余：23:34:23</p>
     <p class="mt5">
         <span class="bkyy tyaui_ser yj20 ye">邀请好友拼单</span>
     </p>
     </section>
-    
+
                 </section>
             </section>
-            
+
               <section v-if="tyoe==1">
                          <section class="dsf_jgh_err mui-row pd">
             <p class="mui-col-xs-2  h100 ds_jh_drttx">
@@ -55,16 +55,16 @@
     等待卖家发货
     </p>
                         <p class="fz14 cf mt5">
-    
-    
+
+
     20天5小时后商品自动确认</p>
     </section>
             </section>
-                  
+
     </section>
-             
-            
-            
+
+
+
             <section v-if="tyoe==2||tyoe==3">
                 <section class="dsf_jgh_err mui-row pd pr">
                     <span class="fz14 cf df_jhg_drtxc">顺丰速运</span>
@@ -77,8 +77,8 @@
 已发货
     </p>
                         <p class="fz14 cf mt5">
-    
-    
+
+
     20天5小时后商品自动确认</p>
     </section>
                            <section class="ov" v-else>
@@ -86,20 +86,20 @@
 待评价
     </p>
                         <p class="fz14 cf mt5">
-    
-    
+
+
     客官，给个评价</p>
     </section>
-                    
-                    
+
+
             </section>
-            
+
               <section class="mt10 bgff pd pt10 pm10 mui-row pr">
                     <p class="sd_jg_drertx ">
     <span class="cz_w  df_jh_dert">
     <i class="dx icon-yifahuo z3 fz30 cz_a"></i>
     </span>
-      
+
     </p>
                         <section class="fz12 z3 pl60 pr20">
                             [北京市]快件已到达北京市通州分拣中心，下一站北苑配送站。[北京市]快件已到达北京市通州分拣中心，下一站北苑配送站。
@@ -107,17 +107,17 @@
                             2018-01-02
                             </p>
                         </section>
-                
+
                   <i class="dx icon-right ddf_ut_er"></i>
-                      
+
                 </section>
-                
-                
+
+
             </section>
-            
-            
-            
-            
+
+
+
+
                 <ul class="mt10">
                     <li class="bgff mui-row btm mb10  pr" :class="tyoe==0?'pr60':''">
                         <section class="pd pt10 pm10">
@@ -131,18 +131,18 @@
                                 <p class="dianer mt5 diz_setx z3">
           北京市 通州区 通州北苑 东花市大街北里西区 22号 西侧B座 北塔 23层 2305室
                                 </p>
-            
+
                             </section>
-                
+
                         </section>
                         <span class="bkyy ls bgff xiugai yj20 fz14" v-if="tyoe==0">修改</span>
-                        
+
                     </li>
                 </ul>
-            
-             
+
+
             <section class="bgff pt10">
-            
+
                   <section class=" pd">
       <tulist></tulist>
     </section>
@@ -154,26 +154,26 @@
 <a class="adsf_asd ye bkyy yj20 ">联系卖家</a>
     </p>
             </section>
-            
-            
+
+
             <section class="bgff pd pt10 pm10 mt10 sdf_er_dretrx pr">
                    <span class="bkyy ls bgff xiugai yj20 fz14 ab">复制</span>
         订单编号 <span>1234567890123</span><br>
         支付方式 <span>支付宝</span>  <br>
-        下单时间 <span>2017-12-11 10:25:30</span>        
-                
-                
-    
+        下单时间 <span>2017-12-11 10:25:30</span>
+
+
+
         </section>
-            
-            
-            
+
+
+
     </section>
-        
-<!--        底部--> 
+
+<!--        底部-->
          <section class="df_rx_ertx btm tr pd box" v-if="tyoe==0">
             <p class="box_a">
-    
+
             </p>
                  <p class="box_a">
             </p>
@@ -182,17 +182,14 @@
     邀请好友拼单
     </span>
             </p>
-            
-      
-            
- 
+
+
     </section>
-        
-        
-        
+
+
              <section class="df_rx_ertx btm tr pd box" v-if="tyoe==1">
             <p class="box_a">
-    
+
             </p>
                  <p class="box_a">
                   <span class="yj20 ye bkyy fz14 dsf_jh_ert">
@@ -204,16 +201,16 @@
     确认收货
     </span>
             </p>
-            
-      
-            
- 
+
+
+
+
     </section>
-        
-        
-        
-        
-        
+
+
+
+
+
              <section class="df_rx_ertx btm tr pd box" v-if="tyoe==2">
             <p class="box_a">
                <span class="yj20 ye bkyy fz14 dsf_jh_ert">
@@ -230,14 +227,14 @@
     确认收货
     </span>
             </p>
-            
-      
-            
- 
+
+
+
+
     </section>
-        
-        
-        
+
+
+
                <section class="df_rx_ertx btm tr pd box" v-if="tyoe==3">
             <p class="box_a">
                <span class="yj20 ye bkyy fz14 dsf_jh_ert">
@@ -254,16 +251,16 @@
     去评价
     </span>
             </p>
-            
-      
-            
- 
+
+
+
+
     </section>
-        
-        
-        
-        
-        
+
+
+
+
+
 	</div>
 </template>
 <script>
@@ -299,12 +296,12 @@
         float: left;
         margin-right: 5px;
     }
-    
+
     .dsf_jh_erx img {
         width: 100%;
         height: 100%;
     }
-    
+
     .tyaui_ser {
         width: 100px;
         text-align: center;

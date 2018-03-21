@@ -7,7 +7,7 @@ import './css/iconfont.css'
 import './css/mui.min.css'
 import './css/base.css'
 import './css/style.css'
-import VueResource from 'vue-resource';
+import VueResource from 'vue-resource'
 import router from './router'
 import public_m from './public_m'
 import MintUI from 'mint-ui'
