@@ -3,13 +3,13 @@
 	<div >
       <head_r :title="'退款/售后'"></head_r>
         <section class="dx_body">
-            
+
               <ul class="sd_iyh_er  bgff">
-                  
+
              <li class="btm pd fz14 pr">
     退款类型
     <span class="fr z3">
-        
+
         <span v-if="leixin">{{leixin}}</span>
         <span class="z9" v-else>请选择</span>
         <i class="dx icon-right"></i>
@@ -19,24 +19,21 @@
              <option>退款类型2</option>
              <option>退款类型3</option>
         </select>
-    </li> 
-                  
+    </li>
+
                         <li class="btm pd fz14 pr">
     快递状态
     <span class="fr z3">
-        
+
       <span>已收货</span>
     </span>
-        
-    </li> 
-                  
-                  
-                  
-                  
+
+    </li>
+
                   <li class="btm pd fz14 pr">
     退款原因
     <span class="fr z3">
-        
+
         <span v-if="yaunying">{{yaunying}}</span>
         <span class="z9" v-else>请选择</span>
         <i class="dx icon-right"></i>
@@ -46,61 +43,61 @@
              <option>退款原因2</option>
              <option>退款原因3</option>
         </select>
-    </li> 
-             
-                  
+    </li>
+
+
                    <li class="btm pd fz14 pr">
     联系电话
     <span class="fr z3">
-        
+
       <span>13192838978</span>
     </span>
-        
-    </li> 
-                  
+
+    </li>
+
     </ul>
-            
+
             <section class="mt10 bgff pd pt10 ">
                     <span class="fz14 fl">退款说明</span>
                 <p class="ov pl10">
           <textarea placeholder="请您详细填写退款说明（170字以内）" class="fz14 fg_kjrtx" rows="3"></textarea>
         </p>
-          
-                
+
+
                 <p class="qc"></p>
-    
+
             </section>
-            
+
             <section class="pd mt10">
         <p class="z3">
         上传凭证 <span class="z9">(最多3张)</span>
     </p>
-    
+
                 <section class="mui-row mt10">
                     <p class="dsf_jh_dert yj20 bgff" v-for="(ts,idx) in tups">
                         <img :src="ts" >
                         <i class="dx icon-cha  close_usr yj bgff" @click="remo_img(idx)"></i>
                     </p>
-                    
-                    
+
+
                         <p class="dsf_jh_dert yj20 bgff" >
                     <i class="dx icon-xiangji fz32"></i>
                             <input type="file" @change="previewFile()" id="ssd_ooie">
                     </p>
-    
+
                 </section>
         </section>
-            
+
     </section>
-        
-         <a class="bgls ad_sdrtxc pm20" @click="hf('shouhouxq_er')">提交申请</a>
+
+         <a class="bgls ad_sdrtxc pm20" @click="hf('after_details_two')">提交申请</a>
 	</div>
 </template>
 <script>
     import head_r from '../components/head_r.vue'
     export default {
         data() {
-            return { 
+            return {
                 leixin: "", //退款类型
                 yaunying: "", //退款原因
                 tups: []
@@ -110,8 +107,8 @@
             head_r: head_r
         },
         methods: {
-            remo_img(idx) { 
-               
+            remo_img(idx) {
+
                 this.tups.splice(idx, 1)
             },
             previewFile() {
@@ -147,15 +144,15 @@ window.scrollTo(0,0);
         height: 100%;
         opacity: 0
     }
-    
 
-    
+
+
     .fg_kjrtx {
         text-indent: 0px;
         padding: 0px;
         border: 0px;
     }
-    
+
     .dsf_jh_dert {
         width: 90px;
         height: 90px;
@@ -166,13 +163,13 @@ window.scrollTo(0,0);
         margin-bottom: 15px;
         position: relative;
     }
-    
+
     .dsf_jh_dert img {
         width: 100%;
         height: 100%;
         border-radius: 20px;
     }
-    
+
     .close_usr {
         position: absolute;
         right: -10px;

@@ -4,13 +4,14 @@
     <head_r :title="'收货地址'"></head_r>
     <section class="dx_body">
       <ul>
-        <li class="bgff mui-row btm mb10" v-for="(ds,idx) in dizi_s">
+        <li class="bgff mui-row btm mb10" v-for="(ds,idx) in dizi_s" @click="postAddressInfo(ds)">
           <section class="pd pt10 pm10">
             <p class="fl map_sdrtxc">
               <i class="dx icon-map ls fz20"></i>
             </p>
             <section class="ov">
               <p class="z3 fz16">
+
                 {{ds.name+" "+ds.mobile}}
               </p>
               <p class="dianer mt5 diz_setx z3">
@@ -42,7 +43,7 @@
     MessageBox
   } from 'mint-ui';
   import head_r from '@/components/head_r.vue'
-
+  import { Toast } from "mint-ui";
   export default {
     data() {
       return {
@@ -54,6 +55,22 @@
       head_r: head_r
     },
     methods: {
+
+      postAddressInfo(address){
+          const _this = this;
+          let obj = {
+            uuid:address.uuid
+          }
+          console.log("address:",address);
+          this.post('/v1/user/addresses/use',obj,function (data) {
+            console.log("aaaaaaaa:",data);
+            if(data.code===200){
+              Toast({
+                message: "选择地址成功!"
+              });
+            }
+          })
+      },
       sanchu(idx, uid) {
         let th = this
         MessageBox.confirm('你确定要删除吗?').then(action => {
@@ -89,5 +106,10 @@
 
   .add_cade_s {
     padding-bottom: 50px
+  }
+  .bgff{
+  }
+  .bgff:hover{
+    border: 1px solid #39B56F;
   }
 </style>

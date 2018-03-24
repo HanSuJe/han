@@ -7,7 +7,7 @@
       <mt-tab-container v-model="selected">
           <mt-tab-container-item id="1">
                   <ul v-infinite-scroll="loadMoreGood" infinite-scroll-disabled="loading" infinite-scroll-distance="5">
-                     <li v-for="(item,index) in goods" :key="index"> 
+                     <li v-for="(item,index) in goods" :key="index">
                          <img v-lazy="item.image" v-if='item.image' class="shop_image img-responsive">
                          <img src="http://gogo-bj.oss-cn-beijing.aliyuncs.com/app/product_bg_square.png?x-oss-process=style/240w" v-if='!item.image' class="shop_image img-responsive">
                          <div class="title">{{item.title}}</div>

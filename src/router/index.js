@@ -45,7 +45,13 @@ export default new Router({
       path: '/comment',
       name: 'comment',
       component: comment
-    }, {
+    },
+    /*{
+      path: '/evaluate',
+      name: 'evaluate',
+      component: evaluate
+    }*/
+    {
       path: '/confirm_order',
       name: 'confirm_order',
       component: confirm_order
@@ -64,7 +70,7 @@ export default new Router({
       component: lint_item
     },
     {
-      path: '/mall/products/details',
+      path: '/mall/products/details/:style_uid',
       name: 'product_details',
       component: product_details
     },

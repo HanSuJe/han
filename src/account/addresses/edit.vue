@@ -61,7 +61,8 @@ export default {
         address: "", //详细地址
         is_default: false //是否默认
       },
-      isMoren: false
+      isMoren: false,
+      mRouter:null
     };
   },
   components: {
@@ -98,6 +99,7 @@ export default {
       this.popupVisible = false;
     },
     baocun() {
+      const th = this;
       //保存按钮触发
       if (!this.form_s.name) {
         this.alert("请输入收货人");
@@ -127,19 +129,22 @@ export default {
       //                }catch(e){
       //
       //                }
-      var th = this;
+
 
       if (this.form_s.uuid) {
         this.put("/v1/user/addresses", this.form_s, function(data) {
           if (data.code == 200) {
-            th.hf("");
+//            th.hf("");
+            th.mRouter.push({path: '/account/addresses', replace: true});
           }
         });
         return;
       }
       this.post("/v1/user/addresses", this.form_s, function(data) {
         if (data.code == 200) {
-          th.hf("");
+//          th.hf("");
+          console.log("zzzzzzzzzzzz:",th.mRouter);
+          th.mRouter.push({path: '/account/addresses', replace: true});
         }
       });
     },
@@ -152,6 +157,8 @@ export default {
   mounted() {
     this.Title("添加地址");
     this.form_s = this.$route.query;
+    console.log("this:",this.$router);
+    this.mRouter = this.$router;
     if (this.$route.query.province) {
       this.us_sd = this.$route.query;
       this.form_s.diqu =

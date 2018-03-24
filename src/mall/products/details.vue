@@ -28,9 +28,11 @@
 
           getGoodsDetail(){
             let _this=this;
-            this.ge_t('/v1/mall/products/details',{ style_uuid:'e5090e0a-8be8-44d7-b9c0-ab9ca9d24780'},
+//            'e5090e0a-8be8-44d7-b9c0-ab9ca9d24780'
+            this.ge_t('/v1/mall/products/details',{ style_uuid:this.$route.params.style_uid},
               function (data) {
                 _this.content=data.data;
+                console.log("获取到的数据是:",data.data);
             });
           }
 

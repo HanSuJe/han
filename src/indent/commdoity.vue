@@ -7,7 +7,7 @@
             <p class="lunbot_tou pd">
                 <i class="dx icon-left z3 hjg_erttc yj"></i>
 
-                 <i class="dx icon-iconfontzhizuobiaozhun20 z3 hjg_erttc yj ab"></i>
+                 <i class="dx icon-iconfontzhizuobiaozhun20 z3 hjg_erttc yj ab" v-show="false"></i>
             </p>
 
     <mt-swipe :auto="4000">
@@ -113,7 +113,7 @@
                 </li>
 
             </ul>
-                <p class="toiy_eswet ls cen btm">
+                <p class="toiy_eswet ls cen btm" @click="hf('evaluate')">
     查看全部评价
             </p>
 
