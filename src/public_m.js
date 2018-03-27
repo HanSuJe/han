@@ -5,10 +5,10 @@ var sd_iux = "http://39.107.86.17"
 var sd_erttx = {}
 /*alert($cookie.get('user_uuid'));
 alert($cookie.get('token'));*/
-sd_erttx.user_uuid = $cookie.get('user_uuid');
-sd_erttx.token = $cookie.get('token')
-// sd_erttx.user_uuid = '39d1e6e7-a527-4a44-a475-9adb2dd52b10';
-// sd_erttx.token = 'c5f8f34e-6906-4e9f-ac7d-d8883c3828f3'
+/*sd_erttx.user_uuid = $cookie.get('user_uuid');
+sd_erttx.token = $cookie.get('token')*/
+sd_erttx.user_uuid = '39d1e6e7-a527-4a44-a475-9adb2dd52b10';
+sd_erttx.token = 'c5f8f34e-6906-4e9f-ac7d-d8883c3828f3'
 export default {
   install(Vue, options) {
     Vue.prototype.Title = function (title) {
@@ -22,6 +22,16 @@ export default {
         cn.token = sd_erttx.token
       }
       cn.signature = this.getsign(cn)
+      this.$http.get(sd_iux + url, {
+        params: cn
+      }).then((response) => {
+        xy(response.data)
+      }, (response) => {
+        alert("请求失败");
+      });
+    }
+    Vue.prototype.ge_t_one = function (url, cn, xy, powe) {
+      cn.user_uuid = sd_erttx.user_uuid
       this.$http.get(sd_iux + url, {
         params: cn
       }).then((response) => {
@@ -52,6 +62,17 @@ export default {
       }
 
       cn.signature = this.getsign(cn)
+      this.$http.put(sd_iux + url, cn).then((response) => {
+        xy(response.data)
+      }, (response) => {
+        alert("请求失败");
+      });
+    }
+    Vue.prototype.put_one = function (url, cn, xy, powe) {
+      cn.user_uuid = sd_erttx.user_uuid
+      if (!powe) {
+        cn.token = sd_erttx.token
+      }
       this.$http.put(sd_iux + url, cn).then((response) => {
         xy(response.data)
       }, (response) => {

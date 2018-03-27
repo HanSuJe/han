@@ -83,23 +83,23 @@
 
             <section class="bgff mt10">
             <p class="toiy_eswet z3 fz14 pd">
-    商品评价(120)
+    商品评价({{comments.length}})
             </p>
             <ul class="df_jug_er">
-                <li class="btm pd pt10 pm10"  v-for="dsf in 2">
+                <li class="btm pd pt10 pm10"  v-for="item in comments">
                     <section class="mui-row">
                     <section class="mui-col-xs-8 dian">
-                    <img src="static/img/longxia.jpg" class="user_iysdf yj cz fl mt5">
+                    <img :src="item.head_image" class="user_iysdf yj cz fl mt5">
                         <section class="ov pl10">
-                            <p class="z3 fz14">用户昵称</p>
+                            <p class="z3 fz14">{{item.nickname}}</p>
                             <p class="z9 fz12">
-    规格：500g/袋
+    {{item.style}}
                             </p>
                         </section>
 
                     </section>
                     <section class="ov  z9 fz12 tr pt10">
-                            17/12/8
+                            {{item.created_at}}
                     </section>
 
 
@@ -107,7 +107,7 @@
                 </section>
 
                     <p class="z3 mt10">
-                            如果你无法简洁的表达你的想法，那只说明你不够了解它。如果你无法简洁的表达你的想法，那只说明你不够了解它。如果你无法简洁的表达你的想法，那只说明你不够了解它。
+                            {{item.content}}
                         </p>
 
                 </li>
@@ -122,34 +122,27 @@
         </section>
 
 
-        <section class="bgff pd pt10 pm10 mt10 pr">
+       <!-- <section class="bgff pd pt10 pm10 mt10 pr">
             <img src="static/img/longxia.jpg" class="uyg_uih_srtxc cz fl">
             <section class="ov pl10">
-                <p class="fz16 z3">{{goodsDetail.shop.name}}</p>
+                <p class="fz16 z3">{{shop.name}}</p>
 
                 <p class="fz12 z3 dfg_jh_ret">
-    {{goodsDetail.shop.sales_volume}} <span class="ml10">{{goodsDetail.shop.product_count}}</span>
+    {{shop.sales_volume}} <span class="ml10">{{shop.product_count}}</span>
                 </p>
             </section>
 
             <span class="bgls sd_jG_drtx">进店</span>
 
             <p class="qc"></p>
-        </section>
+        </section>-->
 
 
            <section class="bgff mt10">
-            <p class="toiy_eswet z3 fz14 pd">
-商品详情
+            <p class="toiy_eswet z3 fz14 pd" @click="goGoodDetail">
+点击查看商品详情
 
             </p>
-               <section class="btm pd pt10 pm10">
-      <img src="static/img/xq_a.png" class="w100">
-                         <img src="static/img/xq_b.png" class="w100">
-                         <img src="static/img/xq_c.png" class="w100">
-            </section>
-
-
     </section>
 
 
@@ -163,7 +156,7 @@
                 </span>
 
             <span class="bkyy yj20 ye fz12 dsfjgh_sertc ml5" @click="gmfuwu=true">
-            ￥29 原价买
+            {{goodsDetail.original_price}} 原价买
             </span>
 
             <span class="bkyy bgye yj20 fz12 dsfjgh_sertc ab ml10"  @click="gmfuwu=true">
@@ -238,22 +231,22 @@
             <mt-popup v-model="gmfuwu" position="bottom" class="df_jh_derttx">
                      <i class="dx icon-shanchuguanbicha2 ye fz32 close_serttx yj" @click="gmfuwu=false"></i>
                 <p class="dsf_jhg_dertx">
-            <img src="static/img/longxia.jpg">
+            <img :src="styleData.image">
             </p>
             <p class="z3 cen mt10">
-    ¥34.90～¥43.90
+    {{styleData.original_price}}～{{styleData.price}}
 
             </p>
                 <p class="ls  cen">
-    保温袋干冰
-
+    {{mLabel}}
     </p>
 
      <section class="mt20 pd">
-        <section class="mui-row pl10" v-for="(ge,idx) in hgs_na">
-            <p class="fz12 df_jgh_dr  z3 fl pt5">{{ge.name}}</p>
+        <section class="mui-row pl10" v-for="(ge,idx) in styles">
+            <p class="fz12 df_jgh_dr  z3 fl pt5">{{ge.category_name}}</p>
             <p class="ov pt5">
-        <span class="sd_hgsd_sd bkyy yj20 fz14" :class="sdf.cls" v-for="(sdf,idxer) in ge.guige" @click="sd_jghs(idx,idxer)">{{sdf.name}}</span>
+        <!--<span class="sd_hgsd_sd bkyy yj20 fz14" :class="sdf.cls" v-for="(sdf,idxer) in ge.guige" @click="sd_jghs(idx,idxer)">{{sdf.name}}</span> -->
+              <span class="sd_hgsd_sd bkyy yj20 fz14 act" v-for="(sdf,idxer) in ge.labels" @click="sd_jghs(sdf)">{{sdf.label}}</span>
 
             </p>
 
@@ -339,6 +332,11 @@
               serviceNote:[],//服务
               promotionInfos:[],//促销
               productsChoice:[],//每日精选
+              shop:{},
+              styleData:{},//商品样式
+              styles:[],
+              comments:[],
+              mLabel:""
             }
         },
         components: {
@@ -347,20 +345,51 @@
       mounted() {
         this.Title("商品详情")
         this.getGoodsDetail();
-        this.getGoodsStyle();
+
       },
         methods: {
+          goGoodDetail(){
+            const _this = this;
+            this.$router.push({
+              path:`/mall/products/details/${_this.goodsDetail.style_uuid}`,
+              replace:true
+            })
+          },
             //获取弹出层获取商品的尺寸等信息
             getGoodsStyle(){
-              this.$http.get("http://39.107.86.17/v1/mall/products/style?user_uuid=6b0fe7a1-1384-49ab-a324-5734910d4b38&uuid=158aa490-124c-43d4-b566-35e8c3465e8f&labels").then((res)=>{
-
-              },(err)=>{
-
-              });
+              const _this = this;
+              let obj = {
+                style_uuid:_this.$route.params.style_uuid,
+                uuid:_this.goodsDetail.uuid
+              }
+              this.ge_t_one('/v1/mall/products/style',obj,function (data) {
+                console.log("获取到款式的信息是:",data);
+                if(data.code === 200){
+                    _this.styleData = data.data;
+                    _this.styles = data.data.styles;
+                }
+              })
             },
             //获取商品详情信息
             getGoodsDetail(){
-              this.$http.get('http://39.107.86.17/v1/mall/products?user_uuid=6b0fe7a1-1384-49ab-a324-5734910d4b38&style_uuid=e5090e0a-8be8-44d7-b9c0-ab9ca9d24780').then((res)=>{
+              const _this = this;
+              let obj = {
+                style_uuid:_this.$route.params.style_uuid
+              }
+              this.ge_t_one('/v1/mall/products',obj,function (data) {
+
+                if(data.code === 200){
+                  _this.goodsDetail =data.data;
+                  console.log("获取到商品详情是:",_this.goodsDetail);
+                  _this.serviceNote = _this.goodsDetail.service_note;
+                  _this.promotionInfos = _this.goodsDetail.promotion_infos;
+                  _this.productsChoice = _this.goodsDetail.products_for_choice.products;
+                  _this.shop = _this.goodsDetail.shop;
+                  _this.comments = _this.goodsDetail.comments;
+                  _this.getGoodsStyle();
+                }
+              })
+             /* this.$http.get('http://39.107.86.17/v1/mall/products?user_uuid=6b0fe7a1-1384-49ab-a324-5734910d4b38&style_uuid=e5090e0a-8be8-44d7-b9c0-ab9ca9d24780').then((res)=>{
 
                  if(res.status === 200){
                      this.goodsDetail =res.data.data;
@@ -371,19 +400,16 @@
                  }
               },(err)=>{
 
-              });
+              });*/
             },
-            sd_jghs(idx,idxer){
-               if( this.hgs_na[idx].guige[idxer].sf==1){
-                   return
-               }
-                this.hgs_na[idx].guige.map(function(a){
-                    a.cls=""
-                })
-                this.hgs_na[idx].guige[idxer].cls="act"
-
+            sd_jghs(item){
+               this.mLabel  = item.label;
             },
             sd_sd_sd(ty){
+                if(this.num>=this.styleData){
+                  alert("不能超过库存总数");
+                  return;
+                }
                 if(ty==0){
                     this.num++
                 }else   if(ty==1){

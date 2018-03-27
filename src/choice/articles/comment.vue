@@ -39,7 +39,7 @@
              <section class="tibu_jhsd btm pd mui-row">
                 <p class="mui-col-xs-12 d_jgh_ddtx pt5">
                     <i class="dx icon-bianji fd_jgh_bsrt fz22"></i>
-                    <input type="text" placeholder="我也有话说" v-model="content" @input="input" ref="input" @keyup="submitComment()">
+                    <input type="text" placeholder="我也有话说" v-model="content" @input="input" ref="input" @keyup.enter="submitComment()">
                 </p>
         </section>
 
@@ -51,7 +51,8 @@
         data() {
             return {
                 content:"",
-                comments:[]
+                comments:[],
+
             }
         },
         components: {
@@ -70,34 +71,30 @@
            * 提交评论
            */
           submitComment(){
+            const _this = this;
             let obj = {
-              user_uuid:'cd93bfa6-645d-4ddf-9aab-b86d14107bf1',
-              token:'7e26e3e5-3955-4759-b6cf-9e960e15f3f1',
-              article_uuid :'73e1ac43-6eef-4499-89f3-e30bbdd4a68c',
+              article_uuid :this.$route.params.article_uuid,
               content:this.content
             }
-            this.$http.post('http://39.107.86.17/v1/choice/comments',
-              obj
-            ).then((res)=>{
-              if(res.body.code===200){
-                  this.getCommentsList();
+            this.post(`/v1/choice/comments`,obj,function (data) {
+              if(data.code===200){
+                _this.getCommentsList();
               }
-            },(err)=>{
-              console.log("提交评论失败",err);
             })
           },
           /**
            * 获取评论列表
            */
           getCommentsList(){
-            this.$http.get('http://39.107.86.17/v1/choice/comments?article_uuid=73e1ac43-6eef-4499-89f3-e30bbdd4a68c').then((res)=>{
-              console.log("获取到评论详情:",res);
-              if(res.body.data){
-                this.comments = res.body.data;
+            const _this= this;
+            let obj = {
+              article_uuid :this.$route.params.article_uuid,
+            }
+            _this.ge_t_one('/v1/choice/comments',obj,function (data) {
+              if(data.code ===200){
+                _this.comments = data.data;
               }
-            },(err)=>{
-
-            });
+            })
           }
         },
       mounted(){

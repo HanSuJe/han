@@ -4,6 +4,7 @@ import addresses from '@/account/addresses/index'
 import edit_address from '@/account/addresses/edit'
 import show_article from '@/choice/articles/show'
 import commdoity from '@/indent/commdoity'
+import evaluate from '@/indent/evaluate'
 import choiceness from '@/choice/articles/choiceness'
 import comment from '@/choice/articles/comment'
 import confirm_order from '@/page/confirm_order'
@@ -34,23 +35,23 @@ export default new Router({
       component: show_article
     },
     {
-      path: '/commdoity',
+      path: '/commdoity/:style_uuid',
       name: 'commdoity',
       component: commdoity
     }, {
-      path: '/choiceness',
+      path: '/choiceness/:uuid',
       name: 'choiceness',
       component: choiceness
     }, {
-      path: '/comment',
+      path: '/comment/:article_uuid',
       name: 'comment',
       component: comment
     },
-    /*{
+    {
       path: '/evaluate',
       name: 'evaluate',
       component: evaluate
-    }*/
+    },
     {
       path: '/confirm_order',
       name: 'confirm_order',

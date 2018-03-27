@@ -8,6 +8,7 @@ import './css/mui.min.css'
 import './css/base.css'
 import './css/style.css'
 import VueResource from 'vue-resource'
+import $ from 'jQuery'
 import router from './router'
 import public_m from './public_m'
 import MintUI from 'mint-ui'
@@ -16,8 +17,13 @@ import MintUI from 'mint-ui'
 Vue.use(MintUI)
 Vue.use(public_m)
 Vue.use(VueResource)
+
 Vue.config.productionTip = false
-Vue.http.options.emulateJSON = true;
+
+Vue.http.options.headers = {
+  'Content-Type': 'application/json; charset=UTF-8'
+}
+// Vue.http.options.emulateJSON = true;
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

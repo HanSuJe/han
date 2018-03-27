@@ -10,18 +10,18 @@
 
     <p class="sd_jh_ertxc">
 
-    <img src="static/img/longxia.jpg">
+    <img :src="images[0]" v-show="images.length>=1">
     </p>
 
         <section class="bgff pd pt10 ">
         <p class="fz24 z3 cen df_err_e">
-    永辉京东到家合作2年 覆盖近20城356家门店
+          {{articleDetail.title}}
     </p>
             <p class="fz16 z3 dsf_jh_erx mt5">
-    【亿邦动力网讯】12月15日消息，永辉超市（鲁谷店）入驻京东到家已经两年了。如今，已经有356家永辉超市门店入驻了京东到家，覆盖了北京、上海、深圳在内的全国近20个主要城市。随着和京东到家合作的扩大，永辉的线上业务增幅迅猛，数据显示：今年前11个月，永辉在京东到家上的销售额月均环比增幅达到20%。
+              {{articleDetail.share.summary}}
     </p>
-        <section class="mt10 dfs_jh_ertx" v-for="sd in 2">
-        <img src="static/img/longxia.jpg" class="fm">
+        <section class="mt10 dfs_jh_ertx" v-for="item in images">
+        <img :src="item" class="fm">
             <p class="pingdan_btn ">
     <a class="bkyy ye yj20 fz16">￥39.9拼单</a>
     </p>
@@ -104,7 +104,7 @@
                 </li>
 
             </ul>
-                <p class="toiy_eswet ls cen btm" @click="hf('comment')">
+                <p class="toiy_eswet ls cen btm" @click="goComment">
     查看全部评价
             </p>
 
@@ -119,10 +119,10 @@
         <section class="tibu_jhsd btm pd mui-row">
                 <p class="mui-col-xs-10 d_jgh_ddtx pt5">
                     <i class="dx icon-bianji fd_jgh_bsrt fz22"></i>
-                  <input type="text" placeholder="我也有话说" v-model="content" @input="input" ref="input" @keyup="submitComment()">
+                  <input type="text" placeholder="我也有话说" v-model="content" @input="input" ref="input" @keyup.enter="submitComment()" id="content">
                 </p>
             <p class="mui-col-xs-2 dsf_jh_de  tr h100">
-        <i class="dx icon-shoucang fz26 cz z9"></i>
+        <i class="dx icon-shoucang fz26 cz z9" @click="dealShouChang"></i>
                 <span class="z9 fz14">{{articleDetail.collections_count}}</span>
     </p>
         </section>
@@ -137,7 +137,8 @@
               likeNumber:12,
               articleDetail:{},
               content:"",
-              shop:{}
+              shop:{},
+              images:[]
             }
         },
         mounted(){
@@ -149,6 +150,13 @@
           })
         },
         methods: {
+          goComment(){
+            const _this = this;
+            this.$router.push({
+              path:`/comment/${_this.$route.params.uuid}`,
+              replace:true
+            })
+          },
           /**
            * 实时获取输入的内容
            * */
@@ -164,45 +172,70 @@
            * 提交评论
            */
           submitComment(){
+            const _this = this;
             let obj = {
-              user_uuid:'cd93bfa6-645d-4ddf-9aab-b86d14107bf1',
-              token:'7e26e3e5-3955-4759-b6cf-9e960e15f3f1',
-              article_uuid :'73e1ac43-6eef-4499-89f3-e30bbdd4a68c',
+              article_uuid :this.$route.params.uuid,
               content:this.content
             }
-            this.$http.post('http://39.107.86.17/v1/choice/comments',
-              obj
-            ).then((res)=>{
-              if(res.body.code===200){
-                this.getDetail();
+            this.post('/v1/choice/comments',obj,function (data) {
+              if(data.code ===200){
+                _this.getDetail();
               }
-            },(err)=>{
-              console.log("提交评论失败",err);
             })
           },
           /**
            * 获取详情页的数据
            * */
           getDetail(){
-            this.$http.get('http://39.107.86.17/v1/choice/articles/detail?uuid=73e1ac43-6eef-4499-89f3-e30bbdd4a68c').then((res)=>{
-                console.log("获取到详情:",res);
-                if(res.body.data){
-                  this.articleDetail = res.body.data;
-                  this.shop = this.articleDetail.shop;
-                }
-            },(err)=>{
-
-            });
+            const _this = this;
+            let obj = {
+              uuid:this.$route.params.uuid
+            }
+            this.ge_t_one(`/v1/choice/articles/detail`,obj,function (data) {
+              if(data.code === 200){
+                _this.articleDetail = data.data;
+                _this.images = data.data.images;
+                _this.shop = _this.articleDetail.shop;
+              }
+            })
           },
+          /**
+           * 收藏与取消收藏
+           * */
+          dealShouChang(){
+            const _this = this;
+            let obj = {
+              article_uuid:_this.$route.params.uuid,
+            }
+            //为true就是取消点赞
+            if(this.articleDetail.collection_or_not){
 
+              this.delete(`/v1/choice/collections`,obj,function (data) {
+                if(data.code ===200){
+                  _this.articleDetail.collections_count--;
+                  this.articleDetail.collection_or_not = !this.articleDetail.collection_or_not;
+                }
+              })
+            }else{
+              this.put_one('/v1/choice/collections',obj,function (data) {
+                if(data.code ===200){
+                  _this.articleDetail.collections_count++;
+                }
+              })
+
+              this.articleDetail.collection_or_not = !this.articleDetail.collection_or_not;
+            }
+
+
+
+          },
           /**
            * 点差(取消点差)
            */
           putCha(){
+            const _this = this;
             let obj = {
-              user_uuid:'cd93bfa6-645d-4ddf-9aab-b86d14107bf1',
-              token:'7e26e3e5-3955-4759-b6cf-9e960e15f3f1',
-              uuid:'73e1ac43-6eef-4499-89f3-e30bbdd4a68c',
+              uuid:_this.$route.params.uuid,
             }
             //为true就是取消点赞
             if(this.articleDetail.laud_bad){
@@ -210,30 +243,25 @@
             }else{
               obj.cancelled = false;
             }
-            this.$http.put('http://39.107.86.17/v1/choice/articles/bad',
-              obj
-            ).then((res)=>{
-              if(res.body.code===200){
-                if(this.articleDetail.laud_bad){
-                  console.log("取消点差成功:",res);
-                  this.articleDetail.laud_bad_count--;
+            this.put_one('/v1/choice/articles/bad',obj,function (data) {
+              if(data.code ===200){
+                if(_this.articleDetail.laud_bad){
+                  console.log("取消点差成功:");
+                  _this.articleDetail.laud_bad_count--;
                 }else{
-                  console.log("点差成功:",res);
-                  this.articleDetail.laud_bad_count++;
+                  console.log("点差成功:");
+                  _this.articleDetail.laud_bad_count++;
                 }
-
               }
-            },(err)=>{
-              console.log("点差失败:",err);
             })
+
             this.articleDetail.laud_bad = !this.articleDetail.laud_bad;
           },
           //点赞(取消点赞)
           putZan(){
+            const _this = this;
             let obj = {
-              user_uuid:'cd93bfa6-645d-4ddf-9aab-b86d14107bf1',
-              token:'7e26e3e5-3955-4759-b6cf-9e960e15f3f1',
-              uuid:'73e1ac43-6eef-4499-89f3-e30bbdd4a68c',
+              uuid:_this.$route.params.uuid,
             };
             //为true就是取消点赞
             if(this.articleDetail.laud_good){
@@ -241,22 +269,18 @@
             }else{
               obj.cancelled = false;
             }
-            this.$http.put('http://39.107.86.17/v1/choice/articles/good',
-              obj
-            ).then((res)=>{
-              if(res.body.code===200){
-                if(this.articleDetail.laud_good){
-                  console.log("取消点赞成功:",res);
-                  this.articleDetail.laud_good_count--;
+            this.put_one(`/v1/choice/articles/good`,obj,function (data) {
+              if(data.code === 200){
+                if(_this.articleDetail.laud_good){
+                  console.log("取消点赞成功:");
+                  _this.articleDetail.laud_good_count--;
                 }else{
-                  console.log("点赞成功:",res);
-                  this.articleDetail.laud_good_count++;
+                  console.log("点赞成功:");
+                  _this.articleDetail.laud_good_count++;
                 }
-
+//                _this.getDetail();
               }
-            },(err)=>{
-              console.log("点赞失败:",err);
-            })
+            });
             this.articleDetail.laud_good = !this.articleDetail.laud_good;
           }
 
