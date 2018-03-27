@@ -71,7 +71,7 @@ export default new Router({
       component: lint_item
     },
     {
-      path: '/mall/products/details/:style_uuid',
+      path: '/mall/products/details',
       name: 'product_details',
       component: product_details
     },
