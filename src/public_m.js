@@ -5,10 +5,10 @@ var sd_iux = "http://39.107.86.17"
 var sd_erttx = {}
 /*alert($cookie.get('user_uuid'));
 alert($cookie.get('token'));*/
-/*sd_erttx.user_uuid = $cookie.get('user_uuid');
-sd_erttx.token = $cookie.get('token')*/
-sd_erttx.user_uuid = '39d1e6e7-a527-4a44-a475-9adb2dd52b10';
-sd_erttx.token = '12c0e219-6409-4a86-bc1a-2f602c588de7'
+sd_erttx.user_uuid = $cookie.get('user_uuid');
+sd_erttx.token = $cookie.get('token')
+// sd_erttx.user_uuid = '39d1e6e7-a527-4a44-a475-9adb2dd52b10';
+// sd_erttx.token = '12c0e219-6409-4a86-bc1a-2f602c588de7'
 export default {
   install(Vue, options) {
     Vue.prototype.Title = function (title) {
