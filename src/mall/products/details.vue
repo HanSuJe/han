@@ -28,8 +28,9 @@
 
           getGoodsDetail(){
             let _this=this;
-//            'e5090e0a-8be8-44d7-b9c0-ab9ca9d24780'
-            this.ge_t('/v1/mall/products/details',{ style_uuid:this.$route.params.style_uuid},
+//            'bd7a829c-625c-454d-a8f2-549c29cca7e5'
+//            this.$route.params.style_uid
+            this.ge_t('/v1/mall/products/details',{ style_uuid:'bd7a829c-625c-454d-a8f2-549c29cca7e5'},
               function (data) {
                 _this.content=data.data;
                 console.log("获取到的数据是:",data.data);
