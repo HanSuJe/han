@@ -188,8 +188,9 @@
            * */
           getDetail(){
             const _this = this;
+            alert(_this.$route.query.uuid)
             let obj = {
-              uuid:this.$route.query.uuid
+              uuid:_this.$route.query.uuid
             }
             this.ge_t_one(`/v1/choice/articles/detail`,obj,function (data) {
               if(data.code === 200){
