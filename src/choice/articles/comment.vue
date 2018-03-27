@@ -73,7 +73,7 @@
           submitComment(){
             const _this = this;
             let obj = {
-              article_uuid :this.$route.params.article_uuid,
+              article_uuid :this.$route.query.article_uuid,
               content:this.content
             }
             this.post(`/v1/choice/comments`,obj,function (data) {
@@ -88,7 +88,7 @@
           getCommentsList(){
             const _this= this;
             let obj = {
-              article_uuid :this.$route.params.article_uuid,
+              article_uuid :this.$route.query.article_uuid,
             }
             _this.ge_t_one('/v1/choice/comments',obj,function (data) {
               if(data.code ===200){

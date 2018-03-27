@@ -359,7 +359,7 @@
             getGoodsStyle(){
               const _this = this;
               let obj = {
-                style_uuid:_this.$route.params.style_uuid,
+                style_uuid:_this.$route.query.style_uuid,
                 uuid:_this.goodsDetail.uuid
               }
               this.ge_t_one('/v1/mall/products/style',obj,function (data) {
@@ -374,7 +374,7 @@
             getGoodsDetail(){
               const _this = this;
               let obj = {
-                style_uuid:_this.$route.params.style_uuid
+                style_uuid:_this.$route.query.style_uuid
               }
               this.ge_t_one('/v1/mall/products',obj,function (data) {
 

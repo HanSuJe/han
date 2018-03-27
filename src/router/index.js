@@ -35,15 +35,15 @@ export default new Router({
       component: show_article
     },
     {
-      path: '/commdoity/:style_uuid',
+      path: '/commdoity',
       name: 'commdoity',
       component: commdoity
     }, {
-      path: '/choiceness/:uuid',
+      path: '/choiceness',
       name: 'choiceness',
       component: choiceness
     }, {
-      path: '/comment/:article_uuid',
+      path: '/comment',
       name: 'comment',
       component: comment
     },

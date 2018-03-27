@@ -30,7 +30,7 @@
             let _this=this;
 //            'bd7a829c-625c-454d-a8f2-549c29cca7e5'
 //            this.$route.params.style_uid
-            alert(_this.$route.query.style_uuid);
+//            alert(_this.$route.query.style_uuid);
             this.ge_t('/v1/mall/products/details',{ style_uuid:_this.$route.query.style_uuid},
               function (data) {
 
@@ -56,6 +56,6 @@
     display: block;
     max-width: 100%;
     height: auto;
-    margin: auto;
+    margin: 0 auto;
   }
 </style>
