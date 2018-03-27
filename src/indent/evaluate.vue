@@ -1,4 +1,4 @@
-<!--评论-->
+<!--商品评论-->
 <template>
 	<div >
            <head_r :title="'评论'"></head_r>
