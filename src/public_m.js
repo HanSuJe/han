@@ -3,12 +3,12 @@ import md5 from './js/md5'
 import $cookie from "@/tools/cookie"
 var sd_iux = "http://39.107.86.17"
 var sd_erttx = {}
-// alert($cookie.get('user_uuid'));
-// alert($cookie.get('token'));
+/*alert($cookie.get('user_uuid'));
+alert($cookie.get('token'));*/
 sd_erttx.user_uuid = $cookie.get('user_uuid');
 sd_erttx.token = $cookie.get('token')
 // sd_erttx.user_uuid = '39d1e6e7-a527-4a44-a475-9adb2dd52b10';
-// sd_erttx.token = '12c0e219-6409-4a86-bc1a-2f602c588de7'
+// sd_erttx.token = 'c747b211-0aff-4499-ae5a-38c8118a6eab'
 export default {
   install(Vue, options) {
     Vue.prototype.Title = function (title) {

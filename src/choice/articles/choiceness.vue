@@ -153,7 +153,7 @@
           goComment(){
             const _this = this;
             this.$router.push({
-              path:`/comment/${_this.$route.query.uuid}`,
+              path:`/comment/${_this.$route.params.uuid}`,
               replace:true
             })
           },
@@ -174,7 +174,7 @@
           submitComment(){
             const _this = this;
             let obj = {
-              article_uuid :this.$route.query.uuid,
+              article_uuid :this.$route.params.uuid,
               content:this.content
             }
             this.post('/v1/choice/comments',obj,function (data) {
@@ -188,9 +188,8 @@
            * */
           getDetail(){
             const _this = this;
-            alert(_this.$route.query.uuid)
             let obj = {
-              uuid:_this.$route.query.uuid
+              uuid:this.$route.params.uuid
             }
             this.ge_t_one(`/v1/choice/articles/detail`,obj,function (data) {
               if(data.code === 200){
@@ -206,7 +205,7 @@
           dealShouChang(){
             const _this = this;
             let obj = {
-              article_uuid:_this.$route.query.uuid,
+              article_uuid:_this.$route.params.uuid,
             }
             //为true就是取消点赞
             if(this.articleDetail.collection_or_not){
@@ -236,7 +235,7 @@
           putCha(){
             const _this = this;
             let obj = {
-              uuid:_this.$route.query.uuid,
+              uuid:_this.$route.params.uuid,
             }
             //为true就是取消点赞
             if(this.articleDetail.laud_bad){
@@ -262,7 +261,7 @@
           putZan(){
             const _this = this;
             let obj = {
-              uuid:_this.$route.query.uuid,
+              uuid:_this.$route.params.uuid,
             };
             //为true就是取消点赞
             if(this.articleDetail.laud_good){

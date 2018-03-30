@@ -50,7 +50,7 @@
     联系电话
     <span class="fr z3">
 
-      <span>13192838978</span>
+      <span>{{phone}}</span>
     </span>
 
     </li>
@@ -60,7 +60,7 @@
             <section class="mt10 bgff pd pt10 ">
                     <span class="fz14 fl">退款说明</span>
                 <p class="ov pl10">
-          <textarea placeholder="请您详细填写退款说明（170字以内）" class="fz14 fg_kjrtx" rows="3"></textarea>
+          <textarea placeholder="请您详细填写退款说明（170字以内）" class="fz14 fg_kjrtx" rows="3" v-model="tuikuanIntro"></textarea>
         </p>
 
 
@@ -90,7 +90,7 @@
 
     </section>
 
-         <a class="bgls ad_sdrtxc pm20" @click="hf('after_details_two')">提交申请</a>
+         <a  class="bgls ad_sdrtxc pm20" @click="goAfterSaleDetail()">提交申请</a>
 	</div>
 </template>
 <script>
@@ -100,15 +100,50 @@
             return {
                 leixin: "", //退款类型
                 yaunying: "", //退款原因
-                tups: []
+                tups: [],
+                order_uuid:"",
+                phone:"13192838978",
+                tuikuanIntro:""
             }
         },
         components: {
             head_r: head_r
         },
         methods: {
+          goAfterSaleDetail(){
+            if(this.leixin===""){
+              alert("请选择退款类型!");
+              return;
+            }
+            if(this.yaunying===""){
+              alert("请选择退款原因!");
+              return;
+            }
+            if(this.tuikuanIntro===""){
+              alert("请选择退款说明!");
+              return;
+            }
+            if(this.tups.length<=0){
+              alert("请上传凭证!");
+              return;
+            }
+            let obj = {
+              order_uuid:this.order_uuid,
+              type_of:this.leixin,
+              refund_cause:this.yaunying,
+              description:this.tuikuanIntro,
+              mobile:this.phone,
+              images:this.tups
+            }
+            this.post(`/v1/mall/services/order/`,obj,function (data) {
+              console.log("data:",data);
+             /* this.$router.push({
+                path:'/after_details_two',
+                replace:true
+              })*/
+            })
+          },
             remo_img(idx) {
-
                 this.tups.splice(idx, 1)
             },
             previewFile() {
@@ -123,6 +158,7 @@
                 }
                 if (file) {
                     reader.readAsDataURL(file);
+                    console.log("file:",file);
                 } else {
 
                 }
@@ -131,6 +167,7 @@
         mounted() {
                 this.Title("售后")
 window.scrollTo(0,0);
+                this.order_uuid = this.$route.params.order_uuid;
         },
     }
 

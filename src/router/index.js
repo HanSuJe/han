@@ -9,6 +9,8 @@ import choiceness from '@/choice/articles/choiceness'
 import comment from '@/choice/articles/comment'
 import confirm_order from '@/page/confirm_order'
 import cashier from '@/refund/cashier'
+import pay_status from '@/refund/pay_status'
+import share from '@/refund/share'
 import order_list from '@/indent/order_list'
 import lint_item from '@/indent/lint_item'
 import after_sales from '@/page/after_sales'
@@ -35,15 +37,15 @@ export default new Router({
       component: show_article
     },
     {
-      path: '/commdoity',
+      path: '/commdoity/:style_uuid',
       name: 'commdoity',
       component: commdoity
     }, {
-      path: '/choiceness',
+      path: '/choiceness/:uuid',
       name: 'choiceness',
       component: choiceness
     }, {
-      path: '/comment',
+      path: '/comment/:article_uuid',
       name: 'comment',
       component: comment
     },
@@ -57,9 +59,18 @@ export default new Router({
       name: 'confirm_order',
       component: confirm_order
     }, {
-      path: '/cashier',
+      path: '/cashier/:order_uuid',
       name: 'cashier',
       component: cashier
+    },
+    {
+      path: '/pay_status/:uuid',
+      name: 'pay_status',
+      component: pay_status
+    },{
+      path: '/share/:uuid',
+      name: 'share',
+      component: share
     }, {
       path: '/order_list',
       name: 'order_list',
@@ -71,7 +82,7 @@ export default new Router({
       component: lint_item
     },
     {
-      path: '/mall/products/details',
+      path: '/mall/products/details/:style_uid',
       name: 'product_details',
       component: product_details
     },
@@ -80,7 +91,7 @@ export default new Router({
       name: 'after_sales',
       component: after_sales
     }, {
-      path: '/after_sale',
+      path: '/after_sale/:order_uuid',
       name: 'after_sale',
       component: after_sale
     }, {

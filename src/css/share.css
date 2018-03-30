@@ -1,0 +1,122 @@
+.share-container{
+  max-width: 46.875rem;
+  min-width: 20.625rem;
+  height: 100%;
+  margin: 0 auto;
+  background: #ffffff;
+}
+.ok-container{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  margin-top: 92px;
+}
+.ok-success{
+  display: block;
+  width: 5rem;
+}
+.pay-success-tip{
+  width: 100%;
+  text-align: center;
+  color: #4E3E3E;
+  font-size: 16px;
+  line-height: 24px;
+}
+.access-container{
+  width: 100%;
+  margin-top: 2rem;
+}
+.get-friend-tip,.warning-tip,.left-time-tip{
+  width: 100%;
+  text-align: center;
+}
+.get-friend-tip{
+  font-size: 20px;
+  color: #4E3E3E;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+.warning-tip{
+  font-size: 12px;
+  color: #AAAAAA;
+}
+.left-time-tip{
+  color:#FA8D65;
+  font-size: 16px;
+  margin-top: 2.25rem;
+}
+.back-container{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 60px;
+}
+.back-btn{
+  color: #37B46E;
+  font-size: 16px;
+  display: block;
+  background:#FFFFFF;
+  box-shadow: 0 2px 6px 0 #ccc;
+  border-radius: 60px ;
+  padding: 20px 100px;
+}
+.buyer-container{
+  width: 100%;
+  margin-top: 1.875rem;
+}
+.buyer-list{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+}
+.buer-item,.buyer-avatar{
+  width: 2.5rem;
+  height: 2.5rem;
+}
+.buer-item{
+  margin-left: 0.625rem;
+}
+.goods-container{
+  width: 100%;
+  margin-top: 1.875rem;
+  margin-left: 12px;
+}
+.goods-img{
+  width: 5rem;
+  height: 5rem;
+  float: left;
+  display: inline-block;
+  vertical-align: middle;
+  border: 1px solid #ccc;
+}
+.goods-info{
+  margin-left: 8px;
+}
+.goods-name{
+  color: #908787;
+  font-size: 14px;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  max-width: 16rem;
+  font-weight: 600;
+}
+.goods-rule{
+  color: #ccc;
+  font-size: 14px;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  max-width: 16rem;
+  margin-top: 10px;
+}
+.goods-info{
+  float: left;
+}

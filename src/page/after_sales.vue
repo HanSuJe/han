@@ -6,7 +6,7 @@
 
 
             <ul class="dsf_ul_dsf pd">
-                <li class="bkyy" v-for="d in 6" @click="hf('after_sale')">
+                <li class="bkyy" v-for="d in 1" @click="goAfterSale()">
         <p class="fz16 z3">退货退款</p>
                     <p class="fz14 mt10">
     我已收到货
@@ -32,7 +32,15 @@
           head_r:head_r
         },
         methods: {
-
+          /**
+           * 跳转到申请退款详情页
+            */
+          goAfterSale(){
+            this.$router.push({
+              path:`/after_sale/64a0727f-bff2-4c14-aa8f-a0deb44a8e44`,
+              replace:true
+            })
+          },
         },
       mounted(){
     this.Title("申请售后")

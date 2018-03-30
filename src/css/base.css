@@ -992,7 +992,7 @@ em {
 }
 
 .ls {
-    color: #37B46E 
+    color: #37B46E
 }
 
 a {
@@ -1217,7 +1217,9 @@ a:hover {
     background-position: 50%;
     position: relative
 }
-
+body{
+  background: #fff!important;
+}
 .sanlie:after {
     content: " ";
     width: 2px;
@@ -1325,7 +1327,7 @@ a:hover {
     font-size: 14px;
     line-height: 1.4;
     padding-top: 8px;
-    
+
 }
 
 .yeer {
