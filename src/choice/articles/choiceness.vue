@@ -142,12 +142,19 @@
             }
         },
         mounted(){
+          this.setTitle({
+            share_title: "测试分享",
+            share_summary: "就是测试",
+            share_url: "https://www.baidu.com/",
+            share_image: "http://image.mastergolf.cn/share/ic_top_100.jpg@300w_80Q_1x.jpg"
+          });
           this.Title("精选");
           const _this = this;
           this.$nextTick(()=>{
               _this.getDetail();
 
           })
+
         },
         methods: {
           goComment(){
