@@ -41,11 +41,11 @@ export default new Router({
       name: 'commdoity',
       component: commdoity
     }, {
-      path: '/choiceness/:uuid',
+      path: '/choiceness',
       name: 'choiceness',
       component: choiceness
     }, {
-      path: '/comment/:article_uuid',
+      path: '/comment',
       name: 'comment',
       component: comment
     },
