@@ -114,16 +114,16 @@ export default {
       document.querySelector('meta[name="share-summary"]').setAttribute('content', mes.share_summary);
       document.querySelector('meta[name="share-url"]').setAttribute('content', mes.share_url);
       document.querySelector('meta[name="share-image"]').setAttribute('content', mes.share_image);
-      var iframe = document.createElement('iframe');
-      iframe.style.visibility = 'hidden';
-      iframe.style.width = '1px';
-      iframe.style.height = '1px';
-      iframe.onload = function () {
-        setTimeout(function () {
-          document.body.removeChild(iframe);
-        }, 0);
-      };
-      document.body.appendChild(iframe);
+      // var iframe = document.createElement('iframe');
+      // iframe.style.visibility = 'hidden';
+      // iframe.style.width = '1px';
+      // iframe.style.height = '1px';
+      // iframe.onload = function () {
+      //   setTimeout(function () {
+      //     document.body.removeChild(iframe);
+      //   }, 0);
+      // };
+      // document.body.appendChild(iframe);
     }
 
 
