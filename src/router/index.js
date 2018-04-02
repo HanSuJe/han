@@ -64,7 +64,7 @@ export default new Router({
       name: 'confirm_order',
       component: confirm_order
     }, {
-      path: '/cashier/:order_uuid',
+      path: '/cashier',
       name: 'cashier',
       component: cashier
     },

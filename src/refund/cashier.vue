@@ -68,7 +68,7 @@
           }
         },
         mounted(){
-          this.order_uuid = this.$route.params.order_uuid;
+          this.order_uuid = this.$route.query.order_uuid;
           document.title = "收银台";
           this.getPayWayInfo();
         },
