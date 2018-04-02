@@ -22,9 +22,9 @@
     </p>
         <section class="mt10 dfs_jh_ertx" v-for="item in images">
         <img :src="item" class="fm">
-            <p class="pingdan_btn ">
-    <a class="bkyy ye yj20 fz16">￥39.9拼单</a>
-    </p>
+            <!--<p class="pingdan_btn ">-->
+    <!--<a class="bkyy ye yj20 fz16">￥39.9拼单</a>-->
+    <!--</p>-->
     </section>
             <!--点赞-->
             <section class="mt30 mui-row cen pm20">
