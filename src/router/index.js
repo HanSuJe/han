@@ -19,6 +19,7 @@ import after_details from '@/page/after_details'
 import after_details_two from '@/page/after_details_two'
 import good_goods from '@/page/good_goods'
 import product_details from '@/mall/products/details'
+import agreement from '@/page/agreement'
 Vue.use(Router)
 export default new Router({
   routes: [{
@@ -30,6 +31,10 @@ export default new Router({
       path: '/account/addresses/edit',
       name: 'edit_address',
       component: edit_address
+    },{
+      path: '/agreement',
+      name: 'agreement',
+      component: agreement
     },
     {
       path: '/choice/articles/show',

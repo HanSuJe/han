@@ -1,11 +1,11 @@
 <!--精选-->
 <template>
 	<div >
-    <header class="head_sdrt pd cen">
-        <i class="dx icon-left tujh_dt" @click="$router.back(-1)"></i>
-        <span class="fz16">{{articleDetail.title}}</span>
-        <i class="dx icon-iconfontzhizuobiaozhun20 fenxiasrcc fz18"></i>
-    </header>
+    <!--<header class="head_sdrt pd cen">-->
+        <!--<i class="dx icon-left tujh_dt" @click="$router.back(-1)"></i>-->
+        <!--<span class="fz16">{{articleDetail.title}}</span>-->
+        <!--<i class="dx icon-iconfontzhizuobiaozhun20 fenxiasrcc fz18"></i>-->
+    <!--</header>-->
         <div class="dx_body">
 
     <p class="sd_jh_ertxc">
