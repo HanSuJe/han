@@ -7,7 +7,7 @@
         <tulist :orderInfo="orderInfo"></tulist>
     <p class="tr mt20">
         <span>实付</span>
-          <span class="fz24 ye">{{orderInfo.price}}</span>
+          <span class="fz24 ye">{{orderInfo.total_fee}}</span>
     </p>
 
             <section class="mt40 mui-row pd pm40">
