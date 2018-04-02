@@ -5,7 +5,6 @@ var sd_iux = "http://39.107.86.17"
 var sd_erttx = {}
 alert($cookie.get('user_uuid'));
 alert($cookie.get('token'));
-
 sd_erttx.user_uuid = $cookie.get('user_uuid');
 sd_erttx.token = $cookie.get('token')
 // sd_erttx.user_uuid = '39d1e6e7-a527-4a44-a475-9adb2dd52b10';
