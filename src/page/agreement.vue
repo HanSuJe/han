@@ -144,8 +144,10 @@
     margin-bottom: 20px;
   }
   h3{
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-left: 15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: 18px;
   }
   .gogo{
     text-align: center;
