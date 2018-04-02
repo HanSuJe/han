@@ -20,6 +20,8 @@ import after_details_two from '@/page/after_details_two'
 import good_goods from '@/page/good_goods'
 import product_details from '@/mall/products/details'
 import agreement from '@/page/agreement'
+import destail from '@/messages/destail'
+import shops from '@/mall/shops'
 Vue.use(Router)
 export default new Router({
   routes: [{
@@ -35,6 +37,15 @@ export default new Router({
       path: '/agreement',
       name: 'agreement',
       component: agreement
+    },{
+      path: '/shops',
+      name: 'shops',
+      component: shops
+    },
+    {
+      path: '/messages/destail',
+      name: 'destail',
+      component: destail
     },
     {
       path: '/choice/articles/show',
