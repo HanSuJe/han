@@ -142,6 +142,7 @@
     text-align: center;
     margin-top: 20px;
     margin-bottom: 20px;
+    font-size: 24px;
   }
   h3{
     margin-left: 15px;
