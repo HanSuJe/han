@@ -126,7 +126,7 @@
 
         },
       mounted(){
-
+        this.Title("用户协议")
         },
     }
 
