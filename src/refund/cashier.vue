@@ -11,13 +11,13 @@
     </p>
 
             <section class="mt40 mui-row pd pm40">
-        <p class="mui-col-xs-6  cen" @click="vokeWeChatPay(pay)" v-for="pay in payWays">
+        <p class="mui-col-xs-6  cen" @click="vokeWeChatPay()" v-for="pay in payWays">
             <a class="bkyy z3 sd_jgh_ds yj20" v-show="pay.mode==='wechat_pay'">
                 <i class="dx icon-weixinzhifu ls fz24 cz"></i>
                 <span>微信支付</span>
             </a>
         </p>
-                <p class="mui-col-xs-6  cen" @click="vokeALiPay(pay)" v-for="pay in payWays" v-show="pay.mode==='alipay'">
+                <p class="mui-col-xs-6  cen" @click="vokeALiPay()" v-for="pay in payWays" v-show="pay.mode==='alipay'">
 
                   <a class="bkyy z3 sd_jgh_ds yj20">
                       <i class="dx icon-zhifubao lser fz24 cz"></i>
