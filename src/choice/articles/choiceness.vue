@@ -138,15 +138,16 @@
               articleDetail:{},
               content:"",
               shop:{},
-              images:[]
+              images:[],
+              share:{}
             }
         },
         mounted(){
           this.setTitle({
-            share_title: "测试分享",
-            share_summary: "就是测试",
-            share_url: "https://www.baidu.com/",
-            share_image: "http://image.mastergolf.cn/share/ic_top_100.jpg@300w_80Q_1x.jpg"
+            share_title: share.title,
+            share_summary: share.summary,
+            share_url: share.url,
+            share_image: share.image
           });
           this.Title("精选");
           const _this = this;
@@ -203,6 +204,7 @@
                 _this.articleDetail = data.data;
                 _this.images = data.data.images;
                 _this.shop = _this.articleDetail.shop;
+                _this.share = _this.articleDetail.share;
               }
             })
           },
