@@ -62,12 +62,12 @@
           //微信支付
           vokeWeChatPay(){
             const _this = this;
-            window.locahost.herf=_this.payWays[0].scheme;
+            window.location.href=_this.payWays[0].scheme;
           },
           //支付宝支付
           vokeALiPay(){
             const _this = this;
-            window.locahost.herf=_this.payWays[1].scheme;
+            window.location.href=_this.payWays[1].scheme;
           }
         },
         mounted(){
