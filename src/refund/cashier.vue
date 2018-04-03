@@ -61,11 +61,13 @@
           },
           //微信支付
           vokeWeChatPay(){
-            window.locahost.herf=this.payWays[0].scheme;
+            const _this = this;
+            window.locahost.herf=_this.payWays[0].scheme;
           },
           //支付宝支付
           vokeALiPay(){
-            window.locahost.herf=this.payWays[1].scheme;
+            const _this = this;
+            window.locahost.herf=_this.payWays[1].scheme;
           }
         },
         mounted(){
