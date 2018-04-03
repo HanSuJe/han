@@ -17,10 +17,9 @@ export default {
     }
 
     Vue.prototype.ge_t = function (url, cn, xy, powe) {
-
-      cn.user_uuid = sd_erttx.user_uuid
+      cn.user_uuid = this.$route.query.user_uuid ? this.$route.query.user_uuid : sd_erttx.user_uuid
       if (!powe) {
-        cn.token = sd_erttx.token
+        cn.token = this.$route.query.token ? this.$route.query.token : sd_erttx.token
       }
       cn.signature = this.getsign(cn)
       this.$http.get(sd_iux + url, {
@@ -32,7 +31,7 @@ export default {
       });
     }
     Vue.prototype.ge_t_one = function (url, cn, xy, powe) {
-      cn.user_uuid = sd_erttx.user_uuid
+      cn.user_uuid = this.$route.query.user_uuid ? this.$route.query.user_uuid : sd_erttx.user_uuid
       this.$http.get(sd_iux + url, {
         params: cn
       }).then((response) => {
@@ -43,9 +42,9 @@ export default {
     }
 
     Vue.prototype.post = function (url, cn, xy, powe) {
-      cn.user_uuid = sd_erttx.user_uuid
+      cn.user_uuid = this.$route.query.user_uuid ? this.$route.query.user_uuid : sd_erttx.user_uuid
       if (!powe) {
-        cn.token = sd_erttx.token
+        cn.token = this.$route.query.token ? this.$route.query.token : sd_erttx.token
       }
       cn.signature = this.getsign(cn)
       this.$http.post(sd_iux + url, cn).then((response) => {
@@ -57,11 +56,10 @@ export default {
 
 
     Vue.prototype.put = function (url, cn, xy, powe) {
-      cn.user_uuid = sd_erttx.user_uuid
+      cn.user_uuid = this.$route.query.user_uuid ? this.$route.query.user_uuid : sd_erttx.user_uuid
       if (!powe) {
-        cn.token = sd_erttx.token
+        cn.token = this.$route.query.token ? this.$route.query.token : sd_erttx.token
       }
-
       cn.signature = this.getsign(cn)
       this.$http.put(sd_iux + url, cn).then((response) => {
         xy(response.data)
@@ -70,9 +68,9 @@ export default {
       });
     }
     Vue.prototype.put_one = function (url, cn, xy, powe) {
-      cn.user_uuid = sd_erttx.user_uuid
+      cn.user_uuid = this.$route.query.user_uuid ? this.$route.query.user_uuid : sd_erttx.user_uuid
       if (!powe) {
-        cn.token = sd_erttx.token
+        cn.token = this.$route.query.token ? this.$route.query.token : sd_erttx.token
       }
       this.$http.put(sd_iux + url, cn).then((response) => {
         xy(response.data)
@@ -83,10 +81,9 @@ export default {
 
 
     Vue.prototype.delete = function (url, cn, xy, powe) {
-
-      cn.user_uuid = sd_erttx.user_uuid
+      cn.user_uuid = this.$route.query.user_uuid ? this.$route.query.user_uuid : sd_erttx.user_uuid
       if (!powe) {
-        cn.token = sd_erttx.token
+        cn.token = this.$route.query.token ? this.$route.query.token : sd_erttx.token
       }
       cn.signature = this.getsign(cn)
       console.log(cn)
