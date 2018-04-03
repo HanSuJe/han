@@ -23,7 +23,7 @@
           }
       },
     mounted(){
-      this.order_uuid = this.$route.params.uuid;
+      this.order_uuid = this.$route.query.uuid;
       this.getShareInfo();
     },
     methods:{

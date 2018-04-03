@@ -80,7 +80,7 @@ export default new Router({
       component: cashier
     },
     {
-      path: '/pay_status/:uuid',
+      path: '/pay_status',
       name: 'pay_status',
       component: pay_status
     },{
