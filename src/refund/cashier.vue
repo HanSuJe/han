@@ -18,6 +18,7 @@
             </a>
         </p>
                 <p class="mui-col-xs-6  cen" @click="vokeALiPay(pay)" v-for="pay in payWays" v-show="pay.mode==='alipay'">
+
                   <a class="bkyy z3 sd_jgh_ds yj20">
                       <i class="dx icon-zhifubao lser fz24 cz"></i>
                       <span>支付宝支付</span>
@@ -60,11 +61,11 @@
           },
           //微信支付
           vokeWeChatPay(){
-
+            window.locahost.herf=this.payWays[0].scheme;
           },
           //支付宝支付
           vokeALiPay(){
-
+            window.locahost.herf=this.payWays[1].scheme;
           }
         },
         mounted(){

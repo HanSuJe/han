@@ -57,7 +57,7 @@
         let obj = {
           uuid:this.$route.query.uuid
         }
-        this.ge_t_one(`/v1/choice/articles/detail`,obj,function (data) {
+        this.ge_t_one(`/v1/user/messages/destail`,obj,function (data) {
           if(data.code === 200){
             _this.articleDetail = data.data;
             _this.images = data.data.images;
