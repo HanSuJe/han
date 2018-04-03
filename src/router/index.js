@@ -9,7 +9,7 @@ import choiceness from '@/choice/articles/choiceness'
 import comment from '@/choice/articles/comment'
 import confirm_order from '@/page/confirm_order'
 import cashier from '@/refund/cashier'
-import pay_status from '@/refund/pay_status'
+import pay_result from '@/refund/pay_result'
 import share from '@/refund/share'
 import order_list from '@/indent/order_list'
 import lint_item from '@/indent/lint_item'
@@ -80,9 +80,9 @@ export default new Router({
       component: cashier
     },
     {
-      path: '/pay_status',
-      name: 'pay_status',
-      component: pay_status
+      path: '/pay_result',
+      name: 'pay_result',
+      component: pay_result
     },{
       path: '/share/:uuid',
       name: 'share',
