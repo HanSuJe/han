@@ -18,7 +18,7 @@
           {{articleDetail.title}}
     </p>
             <p class="fz16 z3 dsf_jh_erx mt5">
-              {{articleDetail.share.summary}}
+              {{articleDetail.details}}
     </p>
         <section class="mt10 dfs_jh_ertx" v-for="item in images">
         <img :src="item" class="fm">
@@ -143,19 +143,23 @@
             }
         },
         mounted(){
-          this.setTitle({
-            share_title: this.share.title,
-            share_summary: this.share.summary,
-            share_url: this.share.url,
-            share_image: this.share.image
-          });
-          this.Title("精选");
-          const _this = this;
-          this.$nextTick(()=>{
-              _this.getDetail();
-
-          })
-
+         const _this = this;
+         this.$nextTick(()=>{
+          _this.setTitle();
+         })
+         //  this.ge_t_one('/v1/choice/articles/detail')
+         //  .then(res=>{
+         //    let that=this;
+         //      that.share_title= res.data.share.title,
+         //      that.share_summary= res.data.share.summary,
+         //      that.share_url= res.data.share.url,
+         //      that.share_image= res.data.share.image
+         //      this.Title("精选");
+         //      const _this = this;
+         //      this.$nextTick(()=>{
+         //      _this.getDetail();
+         //    })
+         // })
         },
         methods: {
           goComment(){
@@ -165,6 +169,25 @@
               replace:true
             })
           },
+          // ===============================================================
+          setTitle(){
+            let that=this;
+            var obj={};
+            this.ge_t(`/v1/choice/articles/detail`,obj,function (data) {
+                if(data.code === 200){
+                    that.share_title= data.share.title,
+                    that.share_summary= data.share.summary,
+                    that.share_url= data.share.url,
+                    that.share_image= data.share.image
+                    this.Title("精选");
+                    const _this = this;
+                    this.$nextTick(()=>{
+                      _this.getDetail();
+                    })
+                }
+            })
+          },
+      // =====================================================================
           /**
            * 实时获取输入的内容
            * */

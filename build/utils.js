@@ -8,7 +8,6 @@ exports.assetsPath = function (_path) {
     : config.dev.assetsSubDirectory
   return path.posix.join(assetsSubDirectory, _path)
 }
-
 exports.cssLoaders = function (options) {
   options = options || {}
 
@@ -19,7 +18,6 @@ exports.cssLoaders = function (options) {
       sourceMap: options.sourceMap
     }
   }
-
   // generate loader string to be used with extract text plugin
   function generateLoaders (loader, loaderOptions) {
     var loaders = [cssLoader]

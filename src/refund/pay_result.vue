@@ -29,7 +29,7 @@
     methods:{
       //分享信息
       shareInfo(orderId){
-           alert("nidianle");
+
       },
       getShareInfo(){
         const _this = this;

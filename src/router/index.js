@@ -22,9 +22,38 @@ import product_details from '@/mall/products/details'
 import agreement from '@/page/agreement'
 import destail from '@/messages/destail'
 import shops from '@/mall/shops'
+import selection from '@/components/selection'
+import grab from '@/components/grab'
+import newitems from '@/components/newitems'
+import footprint from '@/components/footprint'
 Vue.use(Router)
 export default new Router({
-  routes: [{
+  routes: [
+    {
+      path:'/',
+      redirect:{name:'footprint'}
+    },
+    {
+      path:'/components/footprint',
+      name:'footprint',
+      component:footprint
+    },
+    {
+      path:'/components/newitems',
+      name:'newitems',
+      component:newitems
+    },
+    {
+      path:'/components/grab',
+      name:'grab',
+      component:grab
+    },
+    {
+      path:'/components/selection',
+      name:'selection',
+      component:selection
+    },
+    {
       path: '/account/addresses',
       name: 'addresses',
       component: addresses

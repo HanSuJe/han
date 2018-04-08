@@ -1,3 +1,5 @@
+
+
 <template>
    <section>
     1
@@ -6,7 +8,7 @@
 <script>
     export default {
         props:{
-            title:""  
+            title:""
         },
         data() {
             return {

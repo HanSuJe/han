@@ -3,17 +3,17 @@
 <template>
    <section>
         <img :src="orderInfo.image" class="uiy_litss fl">
-       <section class="ov pl10">
+        <section class="ov pl10">
         <p class="dianer d_jgh_drd z3">
-    {{orderInfo.title}}
-    </p>
-           <p class="z9 fz14 mt5">
-    {{orderInfo.style_name}}
-    </p>
-           <p class="mt5">
-    <span>{{orderInfo.price}}</span>
-               <span class="fr">{{orderInfo.quantity_str}}</span>
-    </p>
+                {{orderInfo.title}}
+        </p>
+        <p class="z9 fz14 mt5">
+                {{orderInfo.style_name}}
+        </p>
+        <p class="mt5">
+            <span>{{orderInfo.price}}</span>
+            <span class="fr">{{orderInfo.quantity_str}}</span>
+        </p>
         </section>
 
        <p class="qc"></p>

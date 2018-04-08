@@ -12,7 +12,12 @@ import $ from 'jQuery'
 import router from './router'
 import public_m from './public_m'
 import MintUI from 'mint-ui'
-
+//-----
+// Vue.filter('mySubstr',function(titleStr,num){
+// 	if(titleStr.length<=num) return titleStr;
+// 	else
+// 		return titleStr.substr(0,num)+'......';
+// })
 
 Vue.use(MintUI)
 Vue.use(public_m)

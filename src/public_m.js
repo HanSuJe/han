@@ -6,10 +6,10 @@ var sd_erttx = {}
 // alert($cookie.get('user_uuid'));
 // alert($cookie.get('token'));
 
-sd_erttx.user_uuid = $cookie.get('user_uuid');
-sd_erttx.token = $cookie.get('token')
-// sd_erttx.user_uuid = '39d1e6e7-a527-4a44-a475-9adb2dd52b10';
-// sd_erttx.token = 'c747b211-0aff-4499-ae5a-38c8118a6eab'
+// sd_erttx.user_uuid = $cookie.get('user_uuid');
+// sd_erttx.token = $cookie.get('token')
+sd_erttx.user_uuid = 'e57eb086-0450-40b0-a172-65b26dbcc8fb';
+sd_erttx.token = 'c41920e4-150e-4aab-8416-f9bad33cf64d'
 export default {
   install(Vue, options) {
     Vue.prototype.Title = function (title) {

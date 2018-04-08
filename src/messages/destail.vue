@@ -1,100 +1,110 @@
-<!--系统消息-->
 <template>
-  <div >
-    <div class="dx_body">
-
-      <p class="sd_jh_ertxc">
-
-        <img :src="images[0]" v-show="images.length>=1">
-      </p>
-
-      <section class="bgff pd pt10 ">
-        <p class="fz24 z3 cen df_err_e">
-          {{articleDetail.title}}
-        </p>
-        <p class="fz16 z3 dsf_jh_erx mt5">
-          {{articleDetail.body}}
-        </p>
-        <section class="mt10 dfs_jh_ertx" v-for="item in images">
-          <img :src="item" class="fm">
-          <!--<p class="pingdan_btn ">-->
-          <!--<a class="bkyy ye yj20 fz16">￥39.9拼单</a>-->
-          <!--</p>-->
-        </section>
-      </section>
-
+  <div>
+      <ul class="content">
+        <li v-for="message in messages" >
+           <div class="time">明天{{time}}</div>
+           <div class="photo-list" v-if="message.image?true:false">
+             <img :src="message.image">
+             <p>{{message.title}}</p>
+           </div>
+           <div class="text-list" v-if="message.image?false:true">
+             <p>{{message.body}}</p>
+          </div>
+        </li>
+      </ul>
     </div>
-
-
-
-  </div>
 </template>
 <script>
-
   export default {
-    data() {
-      return {
-        likeNumber:3,
-        articleDetail:{},
-        images:[]
+     data(){
+      return{
+        time:'12:20',
+        messages:[],
+        body:{}
       }
-    },
-    mounted(){
-      this.Title("系统消息");
-      const _this = this;
-      this.$nextTick(()=>{
-        _this.getDetail();
-
-      })
-
-    },
-    methods: {
-      /**
-       * 获取详情页的数据
-       * */
+     },
+     mounted(){
+         this.Title("gogo头条");
+         const _this = this;
+         this.$nextTick(()=>{
+          _this.getDetail();
+         })
+     },
+     methods:{
       getDetail(){
-        const _this = this;
-        let obj = {
-          uuid:this.$route.query.uuid
-        }
-        this.ge_t_one(`/v1/user/messages/destail`,obj,function (data) {
+        let that=this;
+        var obj={};
+        this.ge_t(`/v1/user/messages/destail`,obj,function (data) {
           if(data.code === 200){
-            _this.articleDetail = data.data;
-            _this.images = data.data.images;
+            that.messages = data.data;
+            that.body=data.messages;
           }
         })
-      },
-    },
+      }
   }
-
+}
 </script>
 <style scoped>
-  .sd_jh_ertxc{
-    height: 14.06rem;
+  *{
+    padding: 0;
+    margin: 0;
   }
-  .sd_jh_ertxc img{
+  .content{
+    background-color: #F5F5F5;
+    height: 100vh;
     width: 100%;
-    height: 100%;
+    padding: 10px 15px 0px 15px;
+    position: absolute;
+    top: 0;
   }
-  .df_err_e{
-    line-height: 1.5
+  .time{
+    height: 17px;
+    color: #AAAAAA;
+    text-align: center;
   }
-  .dsf_jh_erx{
-    line-height: 24px;
+  .content li{
+    list-style: none;
   }
-
-  .dfs_jh_ertx{
-    height: 21.56rem;
-    position: relative
+  .photo-list{
+    margin: 10px 0px 30px;
+    position: relative;
+    border-radius: 20px;
+    height: 210px;
   }
-  .dfs_jh_ertx img.fm{
+  .photo-list img{
     width: 100%;
-    height: 100%;
+    height: 210px;
+    border-radius: 20px;
   }
-  .pingdan_btn a{
-    background: #fff;
-    padding: 8px 50px
-
+  .photo-list p{
+    position: absolute;
+    width: 100%;
+    bottom: 0px;
+    background-color: rgba(0,0,0,0.3);
+    height: 59px;
+    padding: 9px 15px;
+    border-radius: 0px 0px 20px 20px;
+    color: #ffffff;
+    font-size: 16px;
+    line-height: 22px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
   }
-
+  .text-list{
+    width: 100%;
+    padding: 15px 15px 22px 15px;
+    border-radius: 20px;
+    margin: 10px 0px 30px;
+    background-color: #ffffff;
+    color: #4E3E3E;
+    line-height: 22px;
+  }
+  .text-list p{
+    font-size: 16px;
+  }
+  body{
+    position: relative;
+  }
 </style>
